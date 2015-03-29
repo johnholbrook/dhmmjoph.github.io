@@ -1,30 +1,24 @@
 <html>
 	<head>
 		<title>{{ page.title }} - John Holbrook</title>
-		<link rel="stylesheet" type="text/css" href="./site.css">
-		<link rel="shortcut icon" href="./favicon.ico">
+		<link rel="stylesheet" type="text/css" href="{{ site.url }}/site.css">
+		<link rel="shortcut icon" href="{{ site.url }}/favicon.ico">
 	</head>
 	<body>
 		<div class="content title">
 			<h1 id="title">John Holbrook</h1>
 			<h2 id="nav">
-				<a href="./">Home</a>
-				<a href="./about.html">About</a>
-				<a href="./LEGO">LEGO</a>
-				<a href="./projects.html">Projects</a>
-				<a href="./contact.html">Contact</a>
+				<a href="{{ site.url }}/">Home</a>
+				<a href="{{ site.url }}/about.html">About</a>
+				<a href="{{ site.url }}/LEGO">LEGO</a>
+				<a href="{{ site.url }}/projects.html">Projects</a>
+				<a href="{{ site.url }}/contact.html">Contact</a>
 			</h2>
 		</div>
 		<div class="content body">
 			<!-- Content goes here -->
+			<h2>{{ page.title }}</h2>
 			{{ content }}
-			<br/>
-  			{% for post in site.posts %}
-     		 	<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-    			{{ post.excerpt }}
-    			<a href="{{ post.url }}">Continue Reading...</a>
-    			<br/>
-  			{% endfor %}
 			</div>
 		<div class="content footer">
 			<small>&copy; 2015 John Holbrook</small>
