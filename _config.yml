@@ -5,9 +5,3 @@ defaults:
       type: "pages" # previously `post` in Jekyll 2.2.
     values:
       layout: "default"
-  -
-  	scope:
-  	  path: "LEGO"
-  	  type: "pages"
-  	values:
-  	  layout: "LEGO"	
