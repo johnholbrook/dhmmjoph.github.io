@@ -1,0 +1,9 @@
+BEGIN:VCARD
+N;CHARSET=utf-8:Holbrook;John;;;
+FN;CHARSET=utf-8:John Holbrook
+TEL;WORK:3047109137
+EMAIL;INTERNET;WORK;CHARSET=utf-8:john@johnholbrook.us
+ADR;WORK;CHARSET=utf-8:;;213 Chestnut St;Huntington;West Virginia;25705;United States
+URL;WORK;CHARSET=utf-8:http://johnholbrook.us
+VERSION:2.1
+END:VCARD
