@@ -3,39 +3,51 @@
 	<head>
 		<title>{{ page.title }} - John Holbrook</title>
 		<link rel="stylesheet" type="text/css" href="./../site.css">
-		<link rel="shortcut icon" href="./../favicon.ico">
-	</head>
+		<!-- BEGIN Icon Gubbins -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/icons/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/icons/manifest.json">
+		<link rel="shortcut icon" href="/icons/favicon.ico">
+		<meta name="msapplication-TileColor" content="#ff0000">
+		<meta name="msapplication-TileImage" content="/icons/mstile-144x144.png">
+		<meta name="msapplication-config" content="/icons/browserconfig.xml">
+		<meta name="theme-color" content="#49c421">
+		<!-- END Icon Gubbins -->	</head>
 	<body>
 		<div class="content title">
 			<h1 id="title">John Holbrook</h1>
-			<div class="grow">
-				<a href="https://twitter.com/JohnPHolbrook">
-					<img src="{{ site.url }}/img/Twitter_logo_blue.png" class="logo"><b class="hovertext"> @JohnPHolbrook on Twitter</b>
-				</a>
-			</div>
-			<div class="grow">
-				<a href="https://github.com/dhmmjoph">
-					<img src="{{ site.url }}/img/GitHub.png" class="logo"> <b class="hovertext"> @dhmmjoph on GitHub</b>
-				</a>
-			</div>
-			<div class="grow">
-				<a href="http://www.reddit.com/user/dhmmjoph/">
-					<img src="{{ site.url }}/img/snoo.png" class="logo"> <b class="hovertext"> /u/dhmmjoph on reddit</b>
-				</a>
-			</div>
-			<div class="grow">
-				<a href="https://www.youtube.com/channel/UCwghc9-xTrSMLlSjcYd7e0A">
-					<img src="{{ site.url }}/img/YouTube.png" class="logo"> <b class="hovertext"> Hello World! on YouTube</b>
-				</a>
-			</div>
-			<h2 id="nav">
-				<a href="/../">Home</a>
-				<a href="/../about.html">About</a>
-				<a href="/../LEGO">LEGO</a>
-				<a href="/../projects.html">Projects</a>
-				<a href="/../contact.html">Contact</a>
-			</h2>
-		</div>
+			<nav>
+				<span>
+					<a href="{{ site.url }}/index.html">Home</a>
+				</span>
+				<span>
+					<a href="{{ site.url }}/about.html">About</a>
+				</span>
+				<span>
+					<a href="{{ site.url }}/LEGO/index.html">LEGO&reg;</a>
+				</span>
+				<span>
+					<a href="{{ site.url }}/projects.html">Projects</a>
+				</span>
+				<span class="dropdown">
+					<a href="{{ site.url }}/contact.html">Contact</a>
+					<a href="https://twitter.com/JohnPHolbrook">Twitter</a>
+					<a href="https://github.com/dhmmjoph">GitHub</a>
+					<a href="http://www.reddit.com/user/dhmmjoph/">Reddit</a>
+					<a href="https://www.youtube.com/channel/UCwghc9-xTrSMLlSjcYd7e0A">YouTube</a>
+				</span>
+			</nav>
 		<div class="content body">
 			<h1>{{ page.title }}</h1>
 			<!-- Content goes here -->

@@ -28,11 +28,7 @@ body {
 .footer {
 	text-align: center;
 }
-#nav a{
-	text-decoration: none;
-	color: inherit;
-}
-#nav a:first-child ~ a:before { content: "\2022\A0"; } /*bullets*/
+
 .quote {
 	font-style: italic;
 	text-align:left;
@@ -49,25 +45,35 @@ img{
 	max-width:90%;
 	/*width:450px;*/
 }
-.grow {
-    height: 0.9756em;
-    width: 1.2em;
-    margin: 0 auto;
-    float: center;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    font-size: 1.5em;
+nav>span {
+	display: inline-block;
+	vertical-align: top;
+	max-height: 2em;
+	margin: 0.5em;
+	overflow: hidden;
+	background-color: white;
+	font-size: 1.25em;
 }
-.grow a{
+
+nav a {
+	display: block;
+	margin: 0.5em;
 	text-decoration: none;
-	color: inherit;
+	color:black;
 }
-.grow:hover {
-    width: auto;
+
+nav>span {
+	transition: background-color 0.5s, max-height 0.5s, margin-bottom 0.5s, border-radius 0.5s, color 0.5s;
 }
-.logo {
-    height:0.813em;
+
+nav>span:hover {
+	max-height: 9em;
+	margin-bottom: -8em;
+	background-color: black;
+	border-radius: 5px;
 }
-.hovertext {
-	vertical-align: middle;
+
+nav>span:hover a{
+	color:white;
+}
+}
