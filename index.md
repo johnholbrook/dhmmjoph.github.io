@@ -3,4 +3,4 @@ layout: index
 title: Home
 ---
 
-I&#39;m John Holbrook, and this is my website. Use the links above to find your way around or see my blog below.
+This is the personal website of John Holbrook, a high school student, robotics enthusiast, and amateur computer scientist based concurrently in Huntington, WV, USA and Orleans, MA, USA. Use the links above to navigate the site or see John&#39;s blog below.

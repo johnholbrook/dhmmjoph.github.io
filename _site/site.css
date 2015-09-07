@@ -8,6 +8,13 @@ body {
 	background-color:white;
 	list-style-position: inside;
 }
+body ul{
+	text-align: left;
+}
+.about{
+	text-align: left;
+	text-indent: 1em;
+}
 #title {
 	font-size: 4em;
 }
@@ -75,5 +82,4 @@ nav>span:hover {
 
 nav>span:hover a{
 	color:white;
-}
 }
