@@ -3,4 +3,4 @@ layout: index
 title: Home
 ---
 
-This is the personal website of John Holbrook, a high school student, robotics enthusiast, and amateur computer scientist based concurrently in Huntington, WV, USA and Orleans, MA, USA. Use the links above to navigate the site or see John&#39;s blog below.
+Hi, I'm John Holbrook and this is my website. I'm interested mostly in computer science, sailing, educational robotics, and making and modifying things, primarily things related to the first three interests. The site serves to catalog the things I make and do, as well as other content about me and my interests. Pages are categorized below.
