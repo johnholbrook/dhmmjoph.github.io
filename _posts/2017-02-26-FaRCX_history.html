@@ -1,0 +1,101 @@
+---
+layout: LEGO
+title: About FaRCX
+category: edu
+summary: A brief history and overview of the FaRCX project
+---
+<p>In the early 2000s, as NASA prepared to launch the Spirit and Opportunity rovers to Mars,
+<a href="http://www.planetary.org/">The Planetary Society</a> and the LEGO Company collaborated
+on the <a href="http://www.planetary.org/explore/projects/redrover/">Red Rover Goes to Mars</a>
+project, which sought to "provide hands-on opportunities for students around the world to participate
+directly in real missions to Mars." The project included online contests to name the two rovers, and
+specially-made <a href="http://www.planetary.org/explore/projects/redrover/mars-spacecraft-dvd.html">silica glass DVDs</a>
+containing the names of participating students were affixed to the landers of each spacecraft and sent to
+Mars.</p>
+
+<p>Also as part of the project, the Planetary Society produced a piece of software, appropriately called
+"Red Rover, Red Rover" which aimed to simulate the experience of remotely operating a Mars rover, using
+LEGO Mindstorms RCX robots. Organizations could host so-called "Mars Stations," which were small dioramas,
+each modeled after a different area of the Martian surface. Inside the diorama was a LEGO&reg; robot,
+with an attached camera, which could be remotely controlled and viewed over the internet using the 
+RRRR software.</p>
+
+<p>At peak, as many as a dozen Red Rover sites, physically located around the world, were available online.
+One<a id="footnote_1_source" href="#footnote_1">*</a> of them was located in Huntington, West Virginia, USA,
+where I grew up; it was operated by <a href="http://marshall.edu/LEGO">Linda Hamilton</a>. Part of Linda's job
+was to travel to various local schools to conduct educational outreach programs using LEGO&reg; products,
+and this was where I first met both her and her Red Rover site in approximately 2007. In addition to the
+hands-on LEGO activities she prepared, a visit from Mrs. Hamilton usually involved driving the Rover from
+across town, and occasionally learning (via the visitor's log) that someone accross the world had driven the rover.
+</p>
+
+<p>Over the years, I became more and more interested in robotics. I began participating in 
+<a href="http://www.firstlegoleague.org/">FIRST LEGO League</a> and, eventually, working with Linda
+to help develop educational materials, conduct day camps and other children's robotics programs,
+and other similar activities. Over time, the Red Rover Goes to Mars project faded into relative obscurity, but Linda's RRRR site stayed up,
+and remained a central part of the activities she conducted. Sometime around 2011, we came to the conclusion that Linda's site was
+the last remaining Mars Station online. In the fall of 2012, the station (and the rest of Linda's lab) moved from
+the now-former <a href="http://njrati.org/">Nick J Rahall Appalachian Transportation Institute</a> site to a much
+larger space located in the Marshall University Science Building. Despite the sensitive nature of moving what was by then
+a lot of old, fragile computer equipment, the Station made the move successfully, and operated out of the new
+lab for just over a year.
+</p>
+
+<p>
+Towards the end of 2013, it became apparent that the continued use of the Marshall Science Building facility would no
+longer be possible. After watching a couple of unsuccessful attempts to find a facility which would be willing to
+host the site, I offered to take on that role, and in December 2013 we moved the Mars Station to a spare
+bedroom in my home, where it has remained since. Not long after, in March 2014, Linda passed away suddenly. In the years I
+knew and worked with her, I saw firsthand how her educational outreach, of which the RRRR site was an integral part,
+brought joy and enthusiasm to hundreds of students, and as such I resolved to keep the site alive in her memory. For the remainder
+of 2014 the site stayed up, still running the Red Rover software.
+</p>
+
+<p>
+Even before Linda's death, she and I and <a href="http://www.philipt.us/">Philip Taylor</a>, another student who worked
+with Linda on various educational projects, had begun to discuss the inadaquacy of the now-outdated RRRR software in
+light of modern web technologies. The project ran on old, long-hardware, sent a series of still images at approximately
+1 frame per second instead of streaming video, and featured a web design straight out of 2001. We discussed replacing the RCX with a newer NXT,
+and using the already-existing <a href="http://www.kleekbots.com/">Kleekbots</a> platform for remote control. However, that
+software never worked very well in our testing, and we liked the hardware features of the existing RCX robot better than anything we 
+might build using NXT parts. However, writing new software to control an RCX presented its own challenges: driver support for the IR
+tower (used to communicate with the RCX) was nonexistent for 64-bit Windows, and software to program the bricks, let alone send control
+commands in real time, was getting harder to find, install, and run over time. So, the project was postponed.
+</p>
+
+<p>
+In December 2014, Philip discovered that <a href="http://legousb.sourceforge.net/legousbtower/index.shtml">drivers for the IR tower</a>
+are included with versions of the Linux kernel newer than 2.6.1, which was sufficient motivation to begin writing new software that
+would replicate the functionality of the old RRRR software. Because we are not affiliated with the Planetary Society or the LEGO Company,
+it was necessary to choose a new, different name for the new software. We came up with "FaRCX," because an RCX is controlled from afar.
+Sometime in January 2015, what I'm pretty sure is the last Red Rover, Red Rover site went offline for good, as control of the rover
+was transferred to FaRCX running on Ubuntu 14.04 LTS on a more recent computer. I still have the computer which ran the RRRR site for 10+
+years, and have dragged it out for demonstration purposes at maker and educational events on a couple of occasions since retiring it,
+though given the fragile nature of old hardware I'm no longer very inclined to do this unless I'm confident I could recreate the setup on
+other hardware if something broke.
+</p>
+
+<p>
+FaRCX was written mostly by Philip, though I contributed to writing some of the web pages, and I retain may of the hosting and administrative
+responsibilities. It's primary advantages over the old RRRR software are that it runs on modern hardware and operating systems, is 
+<a href="https://github.com/G33kDude/FaRCX/">open-source</a>, uses modern web technologies, supports proper streaming video
+(rather than a series of still images), and has two video streams, one offboard and one onboard. Originally, a DB-9 Serial IR tower was
+used, requiring an additional power plug and complicating the setup; however, in summer 2015, RCX enthusiast and FaRCX user
+<a href="https://robotoftheday.me/">Brian Johnson</a> very kindly donated a USB IR tower, which has been dutifully serving the setup ever since.
+Brian also sent us another RCX brick, which has gone on permenant loan to Philip, allowing him to continue development work on FaRCX and
+other RCX-related projects.
+</p>
+
+<p>
+Since taking over the hosting of the rover, I've begun attending college about 70 miles away from home, which has at times made it difficult to
+quickly repair the setup when it breaks. Software problems are easy to fix remotely, but pressing, say, the power button on the RCX can necessitate
+a time-consuming drive in the middle of a busy week. Further, a still-occasionally-used spare bedroom is not exactly an ideal place to store computer
+equipment requiring, among other things, a constant light source. Some day, it might be nice to find a local organization or museum that would be
+willing to devote a small space to hosting the project, but this is a low-priority item. I'm not actively looking for such an organization at this
+time, but nonetheless if you run an educational organization, childrens' museum, or outreach program within approximately an hours' driving time
+of Huntington, WV, you're welcome to get in touch.
+</p>
+
+<p id="footnote_1">*In the early years of the project, Linda also operated another site for a time, in a classroom at Davis Creek Elementary School.
+I have in my possession the computer used to run that site, though its memory has since failed - one of these
+days I'll find some vintage RAM on eBay and get it working again. <a href="#footnote_1_source">Jump back</a></p>
