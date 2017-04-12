@@ -47,6 +47,15 @@ body ul{
 	max-width:90%;
 	width:450px;
 }
+.embed_image{
+	margin: 0.5em;
+	max-width: 65%;
+}
+table, th, td {
+	margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 img{
 	height:auto;
 	max-width:90%;
