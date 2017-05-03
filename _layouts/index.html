@@ -34,7 +34,7 @@
 				</span>
 				<span>
 					<a href="{{ site.url }}/about.html">About</a>
-				</span>
+				</span> 
 				<span>
 					<a href="{{ site.url }}/projects.html">Projects</a>
 				</span>
@@ -51,7 +51,32 @@
 			<!-- Content goes here -->
 			{{ content }}
 			<br/>
+			<h1>Latest Pages</h1>
+			{% assign post1 = site.posts[0] %}
+			{% assign post2 = site.posts[1] %}
+			<div class="new_posts_wrapper">
+				<a class="new_post_link" href="{{post1.url}}">
+				<span class="new_post" id="new_post_1">
+					<img class="new_post_img" src="{{post1.imgurl}}">
+					<div class="new_post_head">{{post1.title}}</div>
+					<div class="new_post_subhead">{{post1.summary}}</div>
+				</span>
+				</a>
 
+				<a class="new_post_link" href="{{post2.url}}">
+				<span class="new_post" id="new_post_2">
+					<img class="new_post_img" src="{{post2.imgurl}}">
+					<div class="new_post_head">{{post2.title}}</div>
+					<div class="new_post_subhead">{{post2.summary}}</div>
+				</span>
+				</a>
+				<br/>
+			</div>
+			<br/>
+
+			<hr style="width:100%">
+
+			<h1>All Pages</h1>
 			<h2>Personal</h2>
 			<ul>
 				{% for post in site.posts %}
