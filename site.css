@@ -56,6 +56,7 @@ body ul{
 	height: 100%;
 }
 .new_post_link:link{
+	color:initial;
 	text-decoration: none;
 }
 .new_post_link:visited{
