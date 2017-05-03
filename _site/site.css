@@ -48,8 +48,49 @@ body ul{
 	width:450px;
 }
 .embed_image{
-	margin: 0.5em;
+	margin-bottom: 0;
 	max-width: 65%;
+}
+.new_posts_wrapper{
+	width:100%;
+	height: 100%;
+}
+.new_post_link:link{
+	text-decoration: none;
+}
+.new_post_link:visited{
+	text-decoration: none;
+	color: initial;
+}
+.new_post:hover{
+	text-decoration: underline;
+}
+.new_post:active{
+	color: blue;
+}
+.new_post{
+	max-width: 48%;
+	margin:1%;
+}
+.new_post_img{
+	width:auto;
+	height:15em;
+}
+#new_post_1{
+	float:left;
+}
+#new_post_2{
+	float:right;
+}
+.new_post_head{
+	font-size:x-large;
+	font-weight: bold;
+}
+.new_post_subhead{
+	font-size: large
+}
+figcaption{
+	font-size: small;
 }
 table, th, td {
 	margin: 0 auto;
