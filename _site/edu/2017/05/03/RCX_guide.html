@@ -56,6 +56,7 @@
 	<li>Programming on linux section</li>
 	<li>Online resources section</li>
 	<li>FAQ?</li>
+	<li>Add power supply to parts table</li>
 </ul>
 </b>
 
@@ -104,7 +105,7 @@
 	and is the one you want anyway.
 	<figure>
 		<img class="embed_image" src="/img/rcx_guide/rcx.png">
-		<figcaption>RCX 1.0 brick. The 2.0 brick is identical except that there's no power jack at
+		<figcaption>RCX 1.0 brick, from all sides. The 2.0 brick is identical except that there's no power jack at
 			the bottom and it says "RCX 2.0" instead of "RCX 1.0".</figcaption>
 	</figure>
 </p>
@@ -214,11 +215,11 @@
 	<figure>
 	<table>
 		<tr>
-			<th>Set Number</th>
+			<th>Set #</th>
 			<th>Set Name</th>
 			<th>RCX Brick Version</th>
-			<th>Motors included</th>
-			<th>Sensors included</th>
+			<th>Motors Included</th>
+			<th>Sensors Included</th>
 			<th>IR Tower Included</th>
 		</tr>
 		<tr>
@@ -371,7 +372,7 @@
 		</tr>
 		<tr>
 			<td>Wire (general search)</td>
-			<td>Various (most starting with 5306bc)</td>
+			<td>Various (most starting with 5306bc or 5306ac)</td>
 			<td><a href="https://www.bricklink.com/v2/search.page?q=%20wire%20with%20brick">Link</a></td>
 		</tr>
 		<tr>
@@ -446,7 +447,35 @@
 </p>
 <h3 id="linux">Linux</h3>
 <p>
-	Haven't written this section yet.
+	As far as I'm aware, there are no GUI Linux applications for controlling the RCX. However, if you're
+	comfortable with the command line (and if you're a linux user, you probably are), there are
+	several choices. These include:
+</p>
+	<ul>
+		<li>
+			<b><a href="http://bricxcc.sourceforge.net/nqc/">NQC</a></b> - the most popular choice on Linux.
+			A cross-platform C-like language for the RCX. Also includes various command-line tools, including
+			the ability to send arbitraty files and opcodes to the RCX, which can be useful for programming
+			in some other languages and for general hacking purposes.
+		</li>
+		<li>
+			<b><a href="http://www.lejos.org/rcx.php">LeJOS</a></b> - Java virtual machine for the RCX.
+			Versions also available for the NXT and EV3.
+		</li>
+		<li>
+			<b><a href="http://www.brickwiki.info/wiki/PbFORTH"><b>pbForth</b></a></b> - an implementation
+			of <a href="https://en.wikipedia.org/wiki/Forth_(programming_language)">Forth</a> for the RCX.
+			Deveoped by <a href="https://github.com/rhempel">Ralph Hempel</a>, who later worked on
+			<a href="https://github.com/7HAL32/pbLua">pbLua</a> for the NXT and
+			<a href="http://www.ev3dev.org/">ev3dev</a> for the EV3.
+			An advantage of pbForth is that it compiles programs on the RCX brick itself rather than on
+			the computer you're using, so all that's really required is the ability to transfer plaintext
+			files from to and from the RCX, which can easily be accomplished on Linux with NQC.
+		</li>
+	</ul>
+<p>
+	It's worth noting that drivers for the USB IR tower are included with essentially all versions of the Linux
+	kernel released in the last 10 years or so.
 </p>
 
 
@@ -490,6 +519,10 @@
 <hr/>
 
 <h2 id="resources">Online Resources</h2>
+<h3>Hardware/Building Guides</h3>
+<h3>Software/Hacking</h3>
+<h3>Sharing</h3>
+<h3>Miscellaneous</h3>
 <p>
 	Haven't written this section yet
 </p>
@@ -497,11 +530,32 @@
 <hr/>
 
 <h2 id="faq">Frequently Asked Questions</h2>
+<h3 id="batteries">I changed the batteries in my RCX and now all my programs are missing! What happened?</h3>
 <p>
-	Haven't written this section yet
+	The RCX's programs and firmware are stored in RAM. This made the brick cheaper to manufacture, because
+	RAM was much cheaper than flash storage in the 1990s. However, a downside of RAM is that it needs to be
+	continuously powered to retain the data it's storing. Thus, when power is cut to the RCX, such as when
+	batteries are removed, its memory is erased, and it reverts to the default firmware and programs.
+</p>
+<p>
+	Happily, inside the RCX there is a small capacitor, which maintains power to the RAM for approximately
+	20 seconds after the batteries are removed. Thus, if you change the batteries within that time, the
+	brick's memory will be preserved. Changing the RCX's batteries within 20 seconds sounds difficult,
+	but is actually not too hard with some practice.
 </p>
 
+<h3 id="64bit_q">I read on [Website] that I can't use the USB IR tower with 64-bit Windows! Is that true?</h3>
+<p>
+	<b>Not anymore</b>. <a href="#ir_tower_x64">See above</a> for more information.
+</p>
 
+<h3 id="tv_remote">Can I send data to the RCX from a
+	[TV remote/IR port on an old laptop/IR LED and an Arduino]?</h3>
+<p>
+	The short answer is <b>no</b>. The IR towers and remote for the RCX use a proprietary communications
+	protocol, which no one has reverse-engineered and which is incompatible with the protocols used by
+	television remotes or IR transmitters on older laptops. 
+</p>
 
 
 
