@@ -475,17 +475,52 @@ imgurl: /img/rcx_guide/rcx.png
 <hr/>
 
 <h2 id="resources">Online Resources</h2>
-<h3>Hardware/Building Guides</h3>
-<h3>Software/Hacking</h3>
-<h3>Sharing</h3>
-<h3>Miscellaneous</h3>
-<p>
-	Haven't written this section yet
-</p>
+<h3 id="hardware_resources">Hardware/Building Guides</h3>
+<h3 id="software_resources">Software/Hacking</h3>
+	<ul>
+		<li>
+			<b><a href="https://pbrick.info/rcx-firmware/">RCX Firmware</a></b> - 
+			info about RCX firmware, as well as downloads of various First- and Third- party
+			firmware images.
+		</li>
+		<li>
+			<b><a href="https://minordiscoveries.wordpress.com/2014/01/20/using-nqc-on-a-raspberry-pi-to-program-a-lego-mindstorms-rcx-brick/">Linux NQC Programming</a></b>
+			- a detailed write-up covering programming an RCX brick using NQC on Linux. Written for
+			use with a Raspberry Pi, but applicable to Linux systems in general.
+		</li>
+		<li>
+			<b><a href="http://www.mralligator.com/rcx/">RCX Internals</a></b> - information about the internal
+			workings of the RCX and Serial IR tower, including hardware teardown, discussion of IR communications
+			protocol, and complete opcode reference.
+		</li>
+		<li>
+			<b><a href="http://www.philohome.com/sdk25/sdk25.htm">RCX 2.5 SDK</b></a> - archives of various
+			tools and documentation for use with the RCX, Spybotics, and Scout bricks which are no longer posted
+			on LEGO's website.
+		</li>
+	</ul>
+<h3 id="sharing">Sharing</h3>
+<h3 id="resources_misc">Miscellaneous</h3>
+	<ul>
+		<li>
+			<b><a href="https://pbrick.info">pbrick.info</a></b> - Lots of great info about various
+			discontinued Mindstorms bricks, including the RCX.
+		</li>
+		<li>
+			<b><a href="https://deeperdesign.wordpress.com/2010/02/26/is-iron-man-made-of-lego/">
+				Is Iron Man Made of LEGO?</a></b> - NQC source code spotted in the Iron Man movie.
+				Not actually a relevant or useful resource, but pretty funny.
+		</li>
+	</ul>
+
 
 <hr/>
 
 <h2 id="faq">Frequently Asked Questions</h2>
+<small><em>Mostly compiled from searches of <a href="https://www.quora.com/search?q=lego+rcx">Quora</a>,
+	the <a href="https://www.reddit.com/r/mindstorms/search?q=rcx&amp;restrict_sr=on&amp;sort=relevance&amp;t=all">
+	Mindstorms subreddit</a>, and the
+	<a href="https://bricks.stackexchange.com/search?q=rcx">LEGO Stack Exchange</a>.</em></small>
 <h3 id="batteries">I changed the batteries in my RCX and now all my programs are missing! What happened?</h3>
 <p>
 	The RCX's programs and firmware are stored in RAM. This made the brick cheaper to manufacture, because
@@ -511,6 +546,51 @@ imgurl: /img/rcx_guide/rcx.png
 	The short answer is <b>no</b>. The IR towers and remote for the RCX use a proprietary communications
 	protocol, which no one has reverse-engineered and which is incompatible with the protocols used by
 	television remotes or IR transmitters on older laptops. 
+</p>
+
+<h3 id="sell">I no longer want my RCX bricks/motors/sensors! What should I do with them?</h3>
+<p>
+	Probably the best thing to do is to sell them on <a href="http://www.ebay.com/">eBay</a> or
+	<a href="https://www.bricklink.com">Bricklink</a>. If for some reason you don't want to do that,
+	<a href="mailto:lego@johnholbrook.us">send me an email</a> -- maybe I'll take it off your hands.
+</p>
+
+<h3 id="music">I want my RCX to play music!</h3>
+<p>
+	This is a surprisingly common thing to want to do. The easiest way I know of is to find or compose
+	a piece of music in the <a href="https://en.wikipedia.org/wiki/Ring_Tone_Transfer_Language">
+	Ring Tone Text Transfer Language</a>, and then use ROBOTC for RCX, which includes a tool
+	(only visible if using menu-level "superuser") for transferring RTTTL tunes to ROBOTC commands which
+	cause the RCX to play the described tune.
+</p>
+
+<h3 id="nxt_sensor">Can I use RCX motors or sensors with the NXT or EV3? What about with an Arduino or Raspberry Pi?</h3>
+<p>
+	A <a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=x1676">converter cable</a> is available
+	which converts the connector used by RCX motors and sensors to the RJ12 connector used by the NXT and EV3.
+	The NXT was designed to be backwards-compatible with RCX motors and sensors, and it's easy to do this
+	in ROBOLAB 2.9 or NXT-G (with the download of some additional sensor blocks for NXT-G).
+</p>
+<p>
+	Unfortunately, due to the EV3 using a slightly different pinout for the sensor ports, the LEGO converter cable
+	will not connect RCX sensors to the EV3 (more info in 
+	<a href="https://bricks.stackexchange.com/questions/8112/use-legacy-rcx-sensors-with-ev3">this 
+	stackexchange thread</a>). Others have produced homemade converter cables which connect the sensors to the
+	correct pins on the EV3, but in any case RCX sensors are unsupported in the official EV3 software, so use
+	of such converters would have to be in conjunction with a third-party firmware such as LeJOS or
+	<a href="http://www.ev3dev.org/">ev3dev</a>.
+</p>
+
+<h3 id="ir_comms">I'm having troube downloading firmware or otherwise transferring large programs or files to the RCX!</h3>
+<p>
+	In my experience, the most common cause of communications failures is interference from bright room or
+	outside light. When downloading firmware or large files to the RCX, I find it helpful to place a box or
+	other opaque structure over the RCX and IR tower in order to prevent visible light interference.
+</p>
+<p>
+	Further discussion of other causes of communications failure can be found in
+	<a href="https://bricks.stackexchange.com/questions/1099/rcx-firmware-download-problem">this
+		stackexchange thread</a>.
 </p>
 
 
