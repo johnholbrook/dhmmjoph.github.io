@@ -4,19 +4,9 @@ title: The RCX, 19 years later
 category: edu
 subhead: A guide to using LEGO's first Mindstorms programmable brick in 2017
 summary: A guide to using the RCX in 2017
-imgurl: /img/rcx_guide/rcx.png
+imgurl: /img/rcx_guide/cover.png
 ---
-<b>
-<h2 style="color:red">TODOs</h2>
-<ul style="color:red">
-	<li>Programming on linux section</li>
-	<li>Online resources section</li>
-	<li>FAQ?</li>
-	<li>Add power supply to parts table</li>
-</ul>
-</b>
 
-<h2 id="intro">Introduction</h2>
 <p>
 	Despite being the oldest of the three Mindstorms programmable bricks, the RCX remains my favorite.
 	I love its simplicity, small size, and its relative reliance on traditional LEGO&reg; studs,
@@ -55,13 +45,34 @@ imgurl: /img/rcx_guide/rcx.png
 <h2 id="hardware">Hardware Guide</h2>
 <h3 id="rcx_brick">RCX Brick</h3>
 <p>
-	There are 2 hardware versions of the RCX brick: 1.0 and 2.0. The primary difference is that the 1.0 brick 
-	includes a power input jack, and so can be continuously powered by an 10.8V 700mA AC (yes, AC, not DC)
-	power supply, whereas the 2.0 brick cannot. The 1.0 brick seems to be more commonly available online,
-	and is the one you want anyway.
+	The RCX brick comes in 3 hardware revisions:
+	<ul>
+		<li>
+			1.0 - The original. The only revision to include a power input jack, so that in addition
+			to 6 AA batteries, it can also be powered by a 9-12V <b>AC</b> power supply. (Yes, you read that
+			right: It's an AC input)
+		</li>
+		<li>
+			1.5 (also called 1.1) - Included with the Robotics Invention System (RIS) 1.5 set.
+			Identical to the 1.0 brick except that the power input jack has been removed. Officially,
+			the 1.5 brick is also called an 1.0 brick, but with a serial number 
+			<a href="https://bricks.stackexchange.com/questions/1105/why-does-my-rcx-programmable-brick-have-no-power-socket">greater than approximately 300000</a>.
+		</li>
+		<li>
+			2.0 - Identical to the 1.5 brick except that the IR interface operates at
+			<a href="https://bricks.stackexchange.com/questions/8049/lego-rcx-1-0-brick-relationship-to-robotics-invention-system-ris-rcx-firmwar">
+			twice the frequency</a> (76 kHz instead of 38 kHz). This has the effect of slightly reduced range,
+			but enables the 2.0 brick to talk to <a href="https://en.wikipedia.org/wiki/Lego_Spybotics">
+			Spybotics products</a>.
+		</li>
+	</ul>
+	Aside from those diffrences, all hardware revisions are functionally identical, and all firmware versions
+	are compatible with all hardware revisions. I tend to favor the 1.0 brick due to the inclusion of the
+	power input, and in any case the 1.0 seems to be the most commonly-available brick online.
 	<figure>
 		<img class="embed_image" src="/img/rcx_guide/rcx.png">
-		<figcaption>RCX 1.0 brick, from all sides. The 2.0 brick is identical except that there's no power jack at
+		<figcaption>RCX 1.0 brick, from all sides. The 1.5 brick is identical except that there's no power 
+			jack at the bottom.The 2.0 brick is identical except that there's no power jack at
 			the bottom and it says "RCX 2.0" instead of "RCX 1.0".</figcaption>
 	</figure>
 </p>
@@ -272,6 +283,11 @@ imgurl: /img/rcx_guide/rcx.png
 			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?id=5923">Link</a></td>
 		</tr>
 		<tr>
+			<td>RCX 1.5 brick</td>
+			<td>884b</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=884b">Link</a></td>
+		</tr>
+		<tr>
 			<td>RCX 2.0 brick</td>
 			<td>884c</td>
 			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?id=45582">Link</a></td>
@@ -474,8 +490,19 @@ imgurl: /img/rcx_guide/rcx.png
 
 <hr/>
 
-<h2 id="resources">Online Resources</h2>
+<h2 id="resources">Resources</h2>
+<p>
+	If you know of any other resources that should be added to this list, feel free to let me know by
+	<a href="mailto:lego@johnholbrook.us">dropping me an email</a>.
+</p>
 <h3 id="hardware_resources">Hardware/Building Guides</h3>
+	<ul>
+		<li>
+			<b><a href="http://www.marshall.edu/LEGO/plans.html">Linda Hamilton's Lesson Plans</b></a> -
+			many project ideas suitable for home or classroom use, most of which use the RCX or can be built
+			with parts from RCX kits.
+		</li>
+	</ul>
 <h3 id="software_resources">Software/Hacking</h3>
 	<ul>
 		<li>
@@ -500,11 +527,35 @@ imgurl: /img/rcx_guide/rcx.png
 		</li>
 	</ul>
 <h3 id="sharing">Sharing</h3>
-<h3 id="resources_misc">Miscellaneous</h3>
+	<ul>
+		<li>
+			<b><a href="http://ldraw.org/">LDraw</a></b> - an open standard for LEGO CAD programs. Various editors are
+				available for may platforms. Unlike LDD (the official LEGO CAD program, which incedentally can 
+				output to LDraw format), LDraw's parts library is much larger, and includes RCX components.
+		</li>
+		<li>
+			<b><a href="http://mindstorms.reddit.com">r/mindstorms</a></b> - Good place to ask questions
+			about the RCX and other Mindstorms products, as well as see things other people have done.
+		</li>
+		<li>
+			<b><a href="https://bricks.stackexchange.com/">LEGO Stack Exchange</a></b> - Not RCX-specific 
+			(or even Mindstorms-specific), but still a good place to ask questions about the RCX.
+		</li>
+	</ul>
+<h3 id="resources_misc">General/Miscellaneous</h3>
 	<ul>
 		<li>
 			<b><a href="https://pbrick.info">pbrick.info</a></b> - Lots of great info about various
 			discontinued Mindstorms bricks, including the RCX.
+		</li>
+		<li>
+			<b><a href="http://bricklink.com">Bricklink</a></b> - The best place to identify parts,
+			find the contents of sets, and buy individual parts.
+		</li>
+		<li>
+			<b><a href="http://www.legoengineering.com/">LEGO Engineering</a></b> - Resources and 
+			info about various Mindstorms platforms, including the RCX. In particular, info about
+			ROBOLAB patches and 64-bit Windows USB tower drivers.
 		</li>
 		<li>
 			<b><a href="https://deeperdesign.wordpress.com/2010/02/26/is-iron-man-made-of-lego/">
@@ -512,6 +563,29 @@ imgurl: /img/rcx_guide/rcx.png
 				Not actually a relevant or useful resource, but pretty funny.
 		</li>
 	</ul>
+<h3 id="books">Books</h3>
+<p>
+	I haven't read these books, and they were published near the time of release of the RCX, so
+	some of the information may now be obsolete or irrelevant.
+	<ul>
+		<li>
+			<b><a href="http://a.co/irj4c11">Definitive Guide to LEGO MINDSTORMS, Second Edition</a></b>
+			by Dave Baum
+		</li>
+		<li>
+			<b><a href="http://a.co/3mThhf5">Building Robots With Lego Mindstorms: The Ultimate Tool for 
+			Mindstorms Maniacs</a></b> by Mario Ferrari, Guilo Ferrari, and Ralph Hempel
+		</li>
+		<li>
+			<b><a href="http://a.co/bjXusDP">The Unofficial Guide to LEGO MINDSTORMS Robots</a></b> by
+			Jonathan Knudsen
+		</li>
+		<li>
+			<b><a href="https://www.amazon.com/s/url=search-alias%3Dstripbooks&amp;field-keywords=lego%20rcx">
+				...and various others</a></b>
+		</li>
+	</ul>
+</p>
 
 
 <hr/>
