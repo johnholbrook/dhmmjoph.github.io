@@ -24,6 +24,7 @@ body ul{
 	background-color:white;
 	color:#000000;
 	padding: 5px;
+	font-size: 1.1em;
 }
 .title {
 	text-align: center;
@@ -93,10 +94,18 @@ body ul{
 figcaption{
 	font-size: small;
 }
-table, th, td {
+table {
 	margin: 0 auto;
     border: 1px solid black;
     border-collapse: collapse;
+}
+th, td{
+	margin:1em;
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+td{
+	padding:0 0.5em;
 }
 img{
 	height:auto;

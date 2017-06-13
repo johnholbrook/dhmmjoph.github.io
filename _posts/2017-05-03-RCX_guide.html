@@ -1,0 +1,685 @@
+---
+layout: LEGO
+title: The RCX, 19 years later
+category: edu
+subhead: A guide to using LEGO's first Mindstorms programmable brick in 2017
+summary: A guide to using the RCX in 2017
+imgurl: /img/rcx_guide/cover.png
+---
+
+<p>
+	Despite being the oldest of the three Mindstorms programmable bricks, the RCX remains my favorite.
+	I love its simplicity, small size, and its relative reliance on traditional LEGO&reg; studs,
+	rather than Technic beams. However, using an RCX is in some ways harder and more complicated than
+	when it was first released in 1998. This article will attempt to summarize some of the equipment,
+	software, and techniques necessary to use an RCX in 2017.
+</p>
+
+<hr/>
+
+<h2 id="why">Why use an RCX?</h2>
+<p>
+	There are several reasons you might want to use an RCX instead of an NXT or EV3:
+	<ol>
+		<li>
+			<em>You already have one.</em> Maybe you're a teacher, and your school never bought newer
+			Mindstorms sets. Maybe you found your old RCX equipment in the attic, and want to play with
+			it again. Maybe you're like me, and you never stopped playing with it in the first place.
+		</li>
+		<li>
+			<em>They're cheap.</em> If you have a limited budget to spend on Mindstorms parts, or you want
+			to buy a kit for a child, but you aren't sure if they'll use it enough to justify the cost
+			of a more-expensive NXT or EV3 set, the RCX could be a good choice.
+		</li>
+		<li>
+			<em>They're simple.</em> For small, uncomplicated, or permenant projects, the low cost and relative
+			simplicity of the RCX make it a good choice.
+		</li>
+		<li>
+			<em>You have a thing for retro technology.</em> Admit it: There's something appealing about the 7-segment
+			LCD display, the infrared communication, and the 8-bit SOC.
+		</li>
+	</ol>
+</p>
+
+<hr/>
+
+<h2 id="hardware">Hardware Guide</h2>
+<h3 id="rcx_brick">RCX Brick</h3>
+<p>
+	The RCX brick comes in 3 hardware revisions:
+	<ul>
+		<li>
+			1.0 - The original. The only revision to include a power input jack, so that in addition
+			to 6 AA batteries, it can also be powered by a 9-12V <b>AC</b> power supply. (Yes, you read that
+			right: It's an AC input).
+		</li>
+		<li>
+			1.5 (also called 1.1) - Included with the Robotics Invention System (RIS) 1.5 set.
+			Identical to the 1.0 brick except that the power input jack has been removed. Officially,
+			the 1.5 brick is also called an 1.0 brick, but with a serial number 
+			<a href="https://bricks.stackexchange.com/questions/1105/why-does-my-rcx-programmable-brick-have-no-power-socket">greater than approximately 300000</a>.
+		</li>
+		<li>
+			2.0 - Identical to the 1.5 brick except that the IR interface operates at
+			<a href="https://bricks.stackexchange.com/questions/8049/lego-rcx-1-0-brick-relationship-to-robotics-invention-system-ris-rcx-firmwar">
+			twice the frequency</a> (76 kHz instead of 38 kHz). This has the effect of slightly reduced range,
+			but enables the 2.0 brick to talk to <a href="https://en.wikipedia.org/wiki/Lego_Spybotics">
+			Spybotics products</a>.
+		</li>
+	</ul>
+	Aside from those diffrences, all hardware revisions are functionally identical, and all firmware versions
+	are compatible with all hardware revisions. I tend to favor the 1.0 brick due to the inclusion of the
+	power input, and in any case the 1.0 seems to be the most commonly-available brick online.
+	<figure>
+		<img class="embed_image" src="/img/rcx_guide/rcx.png">
+		<figcaption>RCX 1.0 brick, from all sides. The 1.5 brick is identical except that there's no power 
+			jack at the bottom.The 2.0 brick is identical except that there's no power jack at
+			the bottom and it says "RCX 2.0" instead of "RCX 1.0".</figcaption>
+	</figure>
+</p>
+<h3 id="ir_tower">Infrared Tower</h3>
+<p>
+	The infrared tower is used to send programs from a computer to the RCX, and data from the RCX back to
+	the computer for logging. There are two models of infrared tower. One connects via a 
+	<a href="http://www.nullmodem.com/DB-9.htm">DE-9 serial port</a> and requires a 9-volt battery, while the
+	other connects over USB, and can get enough power from that so as to not require a battery. The USB model
+	is more convenient to use (due to the lack of additional battery), and seems to be more readily available
+	online.
+	<figure>
+		<img src="/img/rcx_guide/ir_towers.png">
+		<figcaption>Two IR towers: USB on the left; Serial on the right.
+			<br/>
+			📷: <a href="http://lego.wikia.com/">Brickipedia</a>
+			(<a href="http://lego.wikia.com/wiki/File:Infrared.jpg">USB</a>/<a href="http://lego.wikia.com/wiki/File:9713-1.jpg">Serial</a>)
+		</figcaption>
+	</figure>
+</p>
+<h3 id="ir_tower_x64">USB Infrared Tower on 64-bit Windows</h3>
+<p>
+	For many years, the common wisdom was that the USB infrared tower was not supported on 64-bit versions of 
+	windows, the reason being that LEGO never wrote a 64-bit driver for the USB tower. Recently, however, a
+	64-bit compatible USB tower driver <a href="http://www.legoengineering.com/rcx-usb-tower-support/">
+	has become available</a>, courtesy of the people at <a href="http://www.legoengineering.com/">
+	LegoEngineering.com</a>, a joint project of Tufts University's Center for Engineering Education and
+	Outreach, LEGO Education, and various other educators. I have yet to try the new driver myself (because
+	my existing RCX programming setup consists of a 32-bit Windows VM running in VMWare Fusion on a Mac),
+	but it appears that at long last it is possible to use the USB IR tower under 64-bit Windows. Note that
+	this driver is not the same driver included with several popular pieces of software for programming the
+	RCX, such as ROBOTC or ROBOLAB, so if your software came with an included USB tower driver you'll likely
+	need to separately donwload and install the above-linked driver if you run 64-bit Windows.
+</p>
+<h3 id="motors">Motors</h3>
+<p>
+	RCX-compatible motors come in 2 shapes, which I'll call "rectangular" and "cubic". 
+	The cubic motors appear in more sets, and are in my opinion easier to work with.
+	<figure>
+		<img class="embed_image" src="/img/rcx_guide/motors.png">
+		<figcaption>Left: rectangular motor
+			(<a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=2838c01">2838c01</a>). 
+			Right: cubic motor (<a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=71427c01">71427c01
+			</a>/<a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=43362c01">43362c01</a>).
+		</figcaption>
+	</figure>
+	Cubic motors come in 2 hardware revisions. However, unlike the RCX brick, there are no visual
+	cues on the outside of the motors to tell the hardware revisions apart. The primary difference between the 2
+	revisions is that the older motors use internal gears made of metal, whereas in the newer motors the internal
+	gears are made of plastic. As a result, the older hardware revision is more durable. It's also heavier, which is
+	the best way to tell the difference between the two hardware revisions. You'll see the older revision described
+	on Bricklink as "Older, heavier weight" and the newer revision described as "Newer, lighter weight".
+</p>
+<h3 id="sensors">Sensors</h3>
+<p>
+	The first-party sensors available for the RCX are Light, Rotation, Touch, and Temperature. In addition, a number
+	of third-party sensors are available, and LEGO&reg; also produced a "DCP Sensor Adapter" which converted the
+	RCX connector to a 7-Pin DIN socket compatible with  LogIT Microsense scientific sensors made by
+	<a href="http://ccgi.dcpmicro.plus.com/DCPMICRO/lego.htm">DCP Microdevelopments</a>.
+	<figure>
+		<img class="embed_image" src="/img/rcx_guide/first_party_sensors.png">
+		<figcaption>Clockwise from bottom left: Light sensor, rotation sensor, temperature sensor,
+		touch sensor</figcaption>
+	</figure>
+</p>
+<h3 id="wires">Wires</h3>
+<p>
+	The wires used for connecting motors and sensors to the RCX brick are terminated at either end with a 2x2x2/3 
+	brick with electrical contacts on the top and bottom. Wires are available in lengths of 15, 17, 20, 21, 26, 36,
+	46, 69, 162, and 378 studs <a href="http://studs.sariel.pl/">(1 stud = 8 mm = 0.315 in)</a>. Every first-party
+	sensor except for the touch sensor comes with a short wire permenantly affixed to the sensor.
+	<figure>
+		<img class="embed_image" src="/img/rcx_guide/connectors.png">
+		<figcaption>Wire connector for RCX motors and sensors, seen from the top (at left) and bottom
+			(at right)</figcaption>
+	</figure>
+</p>
+<h3 id="remote">Remote</h3>
+<p>
+	There also exists <a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9738-1">an infrared remote
+	control</a>, which can control the motor outputs of the RCX brick in real
+	time without the need for programming.
+	<figure>
+		<img class="embed_image" style="width:10em" src="/img/rcx_guide/remote.jpg">
+		<figcaption>RCX remote.
+			<br/>
+			📷: <a href="http://lego.wikia.com/">Brickipedia</a>
+			(<a href="http://lego.wikia.com/wiki/File:9738-rc2b.jpg">link</a>)
+	</figure>
+</p>
+
+<hr/>
+
+<h2 id="buy">Buying an RCX</h2>
+<p>
+	If you don't already have an RCX, you'll need to buy a brick and an infrared tower. You'll probably also want 
+	to buy some combination of motors and sensors, depending on your application.
+</p>
+<h3 id="buy_set">Buying a set</h3>
+<p>
+	If you're new to Mindstorms, you'll probably want to buy a set containing a bunch of parts. 
+	<a href="http://www.ebay.com/">eBay</a> and <a href="https://www.bricklink.com">Bricklink</a>
+	are both good places to buy RCX sets online.
+</p>
+<p>
+	The following sets contain RCX bricks:
+	<figure>
+	<table>
+		<tr>
+			<th>Set #</th>
+			<th>Set Name</th>
+			<th>RCX Brick Version</th>
+			<th>Motors Included</th>
+			<th>Sensors Included</th>
+			<th>IR Tower Included</th>
+		</tr>
+		<tr>
+			<td>9790</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9790-1#T=I">ROBOLAB Team Challenge
+			 Set</td>
+			<td>1.0</td>
+			<td>2 old cubic&dagger;</td>
+			<td>2 touch, 1 light</td>
+			<td>Serial</td>
+		</tr>
+		<tr>
+			<td>9719</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9719-1#T=I">Robotics Invention
+			 System 1.0</a></td>
+			<td>1.0</td>
+			<td>2 old cubic&dagger;</td>
+			<td>2 touch, 1 light</td>
+			<td>Serial</td>
+		</tr>
+		<tr>
+			<td>9785</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9785-1#T=I">ROBO Technology Set 
+				(Serial)*</a></td>
+			<td>2.0</td>
+			<td>2 old cubic&dagger;</td>
+			<td>2 touch, 1 light</td>
+			<td>Serial</td>
+		</tr>
+		<tr>
+			<td>9786</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9786-1#T=I">ROBO Technology Set 
+				(USB)*</a></td>
+			<td>2.0</td>
+			<td>2 old cubic&dagger;</td>
+			<td>2 touch, 1 light</td>
+			<td>USB</td>
+		</tr>
+		<tr>
+			<td>9793</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9793-1#T=I">ROBOLAB Team Challenge
+			 Set (Serial)*</a></td>
+			<td>2.0</td>
+			<td>2 rectangular</td>
+			<td>2 touch, 1 light</td>
+			<td>Serial</td>
+		</tr>
+		<tr>
+			<td>9794</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9794-1#T=I">ROBOLAB Team Challenge
+			Set (USB)*</a></td>
+			<td>2.0</td>
+			<td>2 rectangular</td>
+			<td>2 touch, 1 light</td>
+			<td>USB</td>
+		</tr>
+		<tr>
+			<td>3804</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=3804-1">Robotics Invention System
+				2.0</a></td>
+			<td>2.0</td>
+			<td>2 old cubic&dagger;</td>
+			<td>2 touch, 1 light</td>
+			<td>USB</td>
+		</tr>
+	</table>
+	<figcaption>
+		*Sets 9785/9786 and 9793/9794 are identical to each other except for the type of the IR tower. <br/>
+		&dagger;LEGO changed the production method of the cubic motors with little fanfare, and in the middle
+		of production of various sets. Thus, it's hard to tell whether a set you buy will contain the older or
+		newer cubic motors, especially when purchasing a newer set (lookin' at you, 3804).
+	</figcaption>
+	</figure>
+	The ideal set would be one that contains an RCX 1.0 brick, older cubic motors, and a USB IR tower. As you
+	can see, such a set doesn't exist. So, you'll have to decide which of those features you care about most and
+	which you could do without. Alternatively, you could purchase either set 9790 or 9719 and supplement
+	that with a USB IR tower, which can be indiviually purchased for relatively little online.
+</p>
+<h3 id="buy_parts">Buying individual parts</h3>
+<p>
+	If you already have a bunch of LEGO&reg; elements, you can save some money by buying only the
+	electronic components you want. In my experience, <a href="https://www.bricklink.com">Bricklink</a>
+	is the best place to buy individual Mindstorms components (or individual LEGO&reg; components of any kind).
+	Here are links to all the parts I've mentioned:
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Part number</th>
+			<th>Link</th>
+		</tr>
+		<tr>
+			<td>RCX 1.0 brick</td>
+			<td>884a</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?id=5923">Link</a></td>
+		</tr>
+		<tr>
+			<td>RCX 1.5 brick</td>
+			<td>884b</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=884b">Link</a></td>
+		</tr>
+		<tr>
+			<td>RCX 2.0 brick</td>
+			<td>884c</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?id=45582">Link</a></td>
+		</tr>
+		<tr>
+			<td>IR Tower (USB)</td>
+			<td>x431c01</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=x431c01">Link</a></td>
+		</tr>
+		<tr>
+			<td>IR Tower (Serial)</td>
+			<td>9713</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9713-1">Link</a></td>
+		</tr>
+		<tr>
+			<td>Rectangular motor</td>
+			<td>2838c01</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=2838c01">Link</a></td>
+		</tr>
+		<tr>
+			<td>Cubic motor, old</td>
+			<td>71427c01</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=71427c01">Link</a></td>
+		</tr>
+		<tr>
+			<td>Cubic motor, new</td>
+			<td>43362c01</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=43362c01">Link</a></td>
+		</tr>
+		<tr>
+			<td>Light sensor</td>
+			<td>9758</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9758-1">Link</a></td>
+		</tr>
+		<tr>
+			<td>Rotation sensor</td>
+			<td>9756</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9756-1">Link</a></td>
+		</tr>
+		<tr>
+			<td>Temperature sensor</td>
+			<td>9755</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9755-1">Link</a></td>
+		</tr>
+		<tr>
+			<td>Touch sensor</td>
+			<td>9757</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9757-1">Link</a></td>
+		</tr>
+		<tr>
+			<td>DCP Sensor Adapter</td>
+			<td>9917</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9917-1">Link</a></td>
+		</tr>
+		<tr>
+			<td>Wire (general search)</td>
+			<td>Various (most starting with 5306bc or 5306ac)</td>
+			<td><a href="https://www.bricklink.com/v2/search.page?q=%20wire%20with%20brick">Link</a></td>
+		</tr>
+		<tr>
+			<td>Remote control</td>
+			<td>9738</td>
+			<td><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9738-1">Link</a></td>
+		</tr>
+	</table>
+</p>
+
+<hr/>
+
+<h2 id="program">Programming an RCX</h2>
+<h3 id="windows">Windows</h3>
+<p>
+	In my experience, programming an RCX brick is most easily done from a computer running Windows. Several
+	languages are available. If you plan to use the USB IR tower and a 64-bit version of Windows, you'll need
+	to install a quasi-third-party driver; <a href="#ir_tower_x64">see above</a> for more info.
+</p>
+<p>
+	<b>ROBOLAB</b> is the best of a couple of pieces of software officially distributed by LEGO for programming
+	RCX bricks. It's based on National Instruments LabView, and unlike later LabView-based Mindstorms software (NXT-G and EV3-G),
+	the visual resemblence is striking. The latest version of ROBOLAB is 2.9.4c, though version 2.5.4 is similar;
+	the primary difference is that 2.9.4c can also program NXT bricks. Unfortunately, it can be pretty difficult to
+	get ahold of a copy of ROBOLAB these days if you don't already have one; relatively few copies are available on
+	Bricklink, and can go for upwards of $50. Note that after installing v2.9.4 from a CD, you'll want to also
+	install the 2.9.4c patch, which can be found <a href="http://www.legoengineering.com/robolab-2-9-4c-patch/">here</a>.
+</p>
+<p>
+	These days, I do most of my RCX programming in <b>ROBOTC</b>.
+	As the name implies, ROBOTC is a C-based language designed for robotics; versions of ROBOTC are also available
+	for NXT/EV3 programmable bricks, VEX IQ "robot brain", VEX Cortex/Pic microcontrollers, and Arduino. Support for
+	the RCX is not included with current versions of ROBOTC; however, a 
+	<a href="http://robotc.net/download/rcx/">legacy RCX version</a> is available, and this has the added advantage
+	of being free, whereas other versions of ROBOTC are not. ROBOTC also comes packaged with a pretty good
+	Integrated Development Environment, and lots of help and resources are available to learn how to use
+	it, because of the support for many popular educational robotics platforms.
+</p>
+<p>
+	Another C-based language for the RCX is <a href="http://bricxcc.sourceforge.net/nqc/"><b>NQC</b></a> 
+	("Not Quite C"). One of the oldest third-party languages for the RCX, NQC has the advantage of working
+	on all three popular desktop operating systems, and developer Dave Baum has written
+	<a href="https://www.amazon.com/Dave-Baum/e/B00DPYSTWE/">several books</a> about the RCX system,
+	which include information about NQC and its use. Another advantage of NQC is that it uses the
+	stock firmware on the RCX (i.e., the same as used by ROBOLAB), unlike ROBOTC or LeJOS.
+</p>
+<p>
+	For people who prefer programming in Java, there's <b><a href="http://www.lejos.org/rcx.php">LeJOS</a></b>.
+	Short for "LEGO Java Operating System", versions of LeJOS are also available for the newer NXT and EV3
+	bricks, and LeJOS has proven to be one of the most popualr languages for third-party RCX programming.
+</p>
+<p>
+	Several other languages exist for the RCX, with which I am less familiar or which are hard to find
+	nowadays. These include:
+	<ul>
+		<li>
+			<a href="http://www.brickwiki.info/wiki/PbFORTH"><b>pbForth</b></a> - an implementation of
+			<a href="https://en.wikipedia.org/wiki/Forth_(programming_language)">Forth</a> for the RCX.
+			Deveoped by <a href="https://github.com/rhempel">Ralph Hempel</a>, who later worked on
+			<a href="https://github.com/7HAL32/pbLua">pbLua</a> for the NXT and
+			<a href="http://www.ev3dev.org/">ev3dev</a> for the EV3.
+		</li>
+		<li>
+			<a href="http://brickos.sourceforge.net/"><b>brickOS</b></a> - allows you to program
+			your RCX in C or C++. Never used it before. Latest release dates back to 2004, and I'm
+			not sure if anybody still actively uses it.
+		</li>
+	</ul>
+</p>
+<p>
+	<b><a href="http://bricxcc.sourceforge.net/">Bricxcc</a></b> is a popular Mindstorms IDE for Windows 
+	which supports programming the RCX using NQC, LeJOS, brickOS, and other languages.
+</p>
+<h3 id="linux">Linux</h3>
+<p>
+	As far as I'm aware, there are no GUI Linux applications for controlling the RCX. However, if you're
+	comfortable with the command line (and if you're a linux user, you probably are), there are
+	several choices. These include:
+</p>
+	<ul>
+		<li>
+			<b><a href="http://bricxcc.sourceforge.net/nqc/">NQC</a></b> - the most popular choice on Linux.
+			A cross-platform C-like language for the RCX. Also includes various command-line tools, including
+			the ability to send arbitraty files and opcodes to the RCX, which can be useful for programming
+			in some other languages and for general hacking purposes.
+		</li>
+		<li>
+			<b><a href="http://www.lejos.org/rcx.php">LeJOS</a></b> - Java virtual machine for the RCX.
+			Versions also available for the NXT and EV3.
+		</li>
+		<li>
+			<b><a href="http://www.brickwiki.info/wiki/PbFORTH"><b>pbForth</b></a></b> - an implementation
+			of <a href="https://en.wikipedia.org/wiki/Forth_(programming_language)">Forth</a> for the RCX.
+			Deveoped by <a href="https://github.com/rhempel">Ralph Hempel</a>, who later worked on
+			<a href="https://github.com/7HAL32/pbLua">pbLua</a> for the NXT and
+			<a href="http://www.ev3dev.org/">ev3dev</a> for the EV3.
+			An advantage of pbForth is that it compiles programs on the RCX brick itself rather than on
+			the computer you're using, so all that's really required is the ability to transfer plaintext
+			files from to and from the RCX, which can easily be accomplished on Linux with NQC.
+		</li>
+	</ul>
+<p>
+	It's worth noting that drivers for the USB IR tower are included with essentially all versions of the Linux
+	kernel released in the last 10 years or so.
+</p>
+
+
+<h3 id="mac">Mac</h3>
+<p>
+	If you have a modern Mac, the easiest thing to do is to program your RCX in a Windows virtual
+	machine (using a piece of software like <a href="https://www.virtualbox.org/">VirtualBox</a>,
+	<a href="https://en.wikipedia.org/wiki/VMware_Fusion">VMWare Fusion</a>, or
+	<a href="http://www.parallels.com/">Parallels</a>). I've run various versions of ROBOLAB and ROBOTC
+	in a virtual machine on various Macs, with no apparent loss of functionality.
+</p>
+<p>
+	Mac software for programming RCX bricks does exist, but is generally either classic Mac OS software or OS X 
+	software compiled for PowerPC, meaning that it won't run on modern Macs. However, if you have an older Mac
+	running Mac OS 9 or an older version of OS X (10.5 or older for running PowerPC software, 
+	10.4 or older for running classic Mac OS software), it is often still possible to program an RCX natively
+	on a Mac.
+</p>
+<p>
+	LEGO released versions of <b>ROBOLAB</b> for the Mac, and versions 2.5.4 and 2.9.4 are available as native OS X
+	software compiled for PowerPC. As far as I'm aware, the functionality of Mac versions of ROBOLAB is identical
+	to the corresponding version on Windows, though I've never used v2.9.4 for mac. ROBOLAB for Mac is
+	even harder to find online than ROBOLAB for Windows, although it appears that later versions of the
+	software were distributed on a single disc containing both Windows and Mac versions of the software.
+</p>
+<p>
+	<b><a href="http://bricxcc.sourceforge.net/nqc/">NQC</a></b>,
+	<b><a href="http://www.lejos.org/rcx.php">LeJOS</a></b>, and
+	<b><a href="http://brickos.sourceforge.net/">brickOS</a></b> all have varying degrees of compatibility
+	with OS X. Sometimes, compiled versions of the software are available for the Mac; other times, it's necessary
+	to compile the software yourself. I'm not aware of any Mac IDEs for any of those languages; the NQC website
+	links to a Mac NQC IDE called <a href="http://homepage.mac.com/rbate/MacNQC/">MacNQC</a> but the link is
+	dead at the time of writing.
+</p>
+<p>
+	Since <b>pbForth</b> compiles and runs code on the RCX itself, all that's
+	necessary to use it on a mac is the ability to send plaintext files from the mac to the RCX, which can be
+	accomplished with NQC.
+</p>
+
+<hr/>
+
+<h2 id="resources">Resources</h2>
+<p>
+	If you know of any other resources that should be added to this list, feel free to let me know by
+	<a href="mailto:lego@johnholbrook.us">dropping me an email</a>.
+</p>
+<h3 id="hardware_resources">Hardware/Building Guides</h3>
+	<ul>
+		<li>
+			<b><a href="http://www.marshall.edu/LEGO/plans.html">Linda Hamilton's Lesson Plans</b></a> -
+			many project ideas suitable for home or classroom use, most of which use the RCX or can be built
+			with parts from RCX kits.
+		</li>
+	</ul>
+<h3 id="software_resources">Software/Hacking</h3>
+	<ul>
+		<li>
+			<b><a href="https://pbrick.info/rcx-firmware/">RCX Firmware</a></b> - 
+			info about RCX firmware, as well as downloads of various First- and Third- party
+			firmware images.
+		</li>
+		<li>
+			<b><a href="https://minordiscoveries.wordpress.com/2014/01/20/using-nqc-on-a-raspberry-pi-to-program-a-lego-mindstorms-rcx-brick/">Linux NQC Programming</a></b>
+			- a detailed write-up covering programming an RCX brick using NQC on Linux. Written for
+			use with a Raspberry Pi, but applicable to Linux systems in general.
+		</li>
+		<li>
+			<b><a href="http://www.mralligator.com/rcx/">RCX Internals</a></b> - information about the internal
+			workings of the RCX and Serial IR tower, including hardware teardown, discussion of IR communications
+			protocol, and complete opcode reference.
+		</li>
+		<li>
+			<b><a href="http://www.philohome.com/sdk25/sdk25.htm">RCX 2.5 SDK</b></a> - archives of various
+			tools and documentation for use with the RCX, Spybotics, and Scout bricks which are no longer posted
+			on LEGO's website.
+		</li>
+	</ul>
+<h3 id="sharing">Sharing</h3>
+	<ul>
+		<li>
+			<b><a href="http://ldraw.org/">LDraw</a></b> - an open standard for LEGO CAD programs. Various editors
+				are available for many platforms. Unlike LDD (the official LEGO CAD program, which incidentally can 
+				output to LDraw format), LDraw's parts library is much larger, and includes RCX components.
+		</li>
+		<li>
+			<b><a href="http://mindstorms.reddit.com">r/mindstorms</a></b> - Good place to ask questions
+			about the RCX and other Mindstorms products, as well as to see things other people have done.
+		</li>
+		<li>
+			<b><a href="https://bricks.stackexchange.com/">LEGO Stack Exchange</a></b> - Not RCX-specific 
+			(or even Mindstorms-specific), but still a good place to ask questions about the RCX.
+		</li>
+	</ul>
+<h3 id="resources_misc">General/Miscellaneous</h3>
+	<ul>
+		<li>
+			<b><a href="https://pbrick.info">pbrick.info</a></b> - Lots of great info about various
+			discontinued Mindstorms bricks, including the RCX.
+		</li>
+		<li>
+			<b><a href="http://bricklink.com">Bricklink</a></b> - The best place to identify parts,
+			find the contents of sets, and buy individual parts.
+		</li>
+		<li>
+			<b><a href="http://www.legoengineering.com/">LEGO Engineering</a></b> - Resources and 
+			info about various Mindstorms platforms, including the RCX. In particular, info about
+			ROBOLAB patches and 64-bit Windows USB tower drivers.
+		</li>
+		<li>
+			<b><a href="https://deeperdesign.wordpress.com/2010/02/26/is-iron-man-made-of-lego/">
+				Is Iron Man Made of LEGO?</a></b> - NQC source code spotted in the Iron Man movie.
+				Not actually a relevant or useful resource, but pretty funny.
+		</li>
+	</ul>
+<h3 id="books">Books</h3>
+<p>
+	I haven't read these books, and they were published near the time of release of the RCX, so
+	some of the information may now be obsolete or irrelevant.
+	<ul>
+		<li>
+			<b><a href="http://a.co/irj4c11">Definitive Guide to LEGO MINDSTORMS, Second Edition</a></b>
+			by Dave Baum
+		</li>
+		<li>
+			<b><a href="http://a.co/3mThhf5">Building Robots With Lego Mindstorms: The Ultimate Tool for 
+			Mindstorms Maniacs</a></b> by Mario Ferrari, Guilo Ferrari, and Ralph Hempel
+		</li>
+		<li>
+			<b><a href="http://a.co/bjXusDP">The Unofficial Guide to LEGO MINDSTORMS Robots</a></b> by
+			Jonathan Knudsen
+		</li>
+		<li>
+			<b><a href="https://www.amazon.com/s/url=search-alias%3Dstripbooks&amp;field-keywords=lego%20rcx">
+				...and various others</a></b>
+		</li>
+	</ul>
+</p>
+
+
+<hr/>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<small><em>Mostly compiled from searches of <a href="https://www.quora.com/search?q=lego+rcx">Quora</a>,
+	the <a href="https://www.reddit.com/r/mindstorms/search?q=rcx&amp;restrict_sr=on&amp;sort=relevance&amp;t=all">
+	Mindstorms subreddit</a>, and the
+	<a href="https://bricks.stackexchange.com/search?q=rcx">LEGO Stack Exchange</a>.</em></small>
+<h3 id="batteries">I changed the batteries in my RCX and now all my programs are missing! What happened?</h3>
+<p>
+	The RCX's programs and firmware are stored in RAM. This made the brick cheaper to manufacture, because
+	RAM was much cheaper than flash storage in the 1990s. However, a downside of RAM is that it needs to be
+	continuously powered to retain the data it's storing. Thus, when power is cut to the RCX, such as when
+	batteries are removed, its memory is erased, and it reverts to the default firmware and programs.
+</p>
+<p>
+	Happily, inside the RCX there is a small capacitor, which maintains power to the RAM for approximately
+	20 seconds after the batteries are removed. Thus, if you change the batteries within that time, the
+	brick's memory will be preserved. Changing the RCX's batteries within 20 seconds sounds difficult,
+	but is actually not too hard with some practice.
+</p>
+
+<h3 id="64bit_q">I read on [Website] that I can't use the USB IR tower with 64-bit Windows! Is that true?</h3>
+<p>
+	<b>Not anymore</b>. <a href="#ir_tower_x64">See above</a> for more information.
+</p>
+
+<h3 id="tv_remote">Can I send data to the RCX from a
+	[TV remote/IR port on an old laptop/IR LED and an Arduino]?</h3>
+<p>
+	The short answer is <b>no</b>. The IR towers and remote for the RCX use a proprietary communications
+	protocol, which no one has reverse-engineered and which is incompatible with the protocols used by
+	television remotes or IR transmitters on older laptops. 
+</p>
+
+<h3 id="sell">I no longer want my RCX bricks/motors/sensors! What should I do with them?</h3>
+<p>
+	Probably the best thing to do is to sell them on <a href="http://www.ebay.com/">eBay</a> or
+	<a href="https://www.bricklink.com">Bricklink</a>. If for some reason you don't want to do that,
+	<a href="mailto:lego@johnholbrook.us">send me an email</a> -- maybe I'll take it off your hands.
+</p>
+
+<h3 id="music">I want my RCX to play music!</h3>
+<p>
+	This is a surprisingly common thing to want to do. The easiest way I know of is to find or compose
+	a piece of music in the <a href="https://en.wikipedia.org/wiki/Ring_Tone_Transfer_Language">
+	Ring Tone Text Transfer Language</a>, and then use ROBOTC for RCX, which includes a tool
+	(only visible if using menu-level "superuser") for transferring RTTTL tunes to ROBOTC commands which
+	cause the RCX to play the described tune.
+</p>
+
+<h3 id="nxt_sensor">Can I use RCX motors or sensors with the NXT or EV3? What about with an Arduino or Raspberry Pi?</h3>
+<p>
+	A <a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=x1676">converter cable</a> is available
+	which converts the connector used by RCX motors and sensors to the RJ12 connector used by the NXT and EV3.
+	The NXT was designed to be backwards-compatible with RCX motors and sensors, and it's easy to do this
+	in ROBOLAB 2.9 or NXT-G (with the download of some additional sensor blocks for NXT-G).
+</p>
+<p>
+	Unfortunately, due to the EV3 using a slightly different pinout for the sensor ports, the LEGO converter cable
+	will not connect RCX sensors to the EV3 (more info in 
+	<a href="https://bricks.stackexchange.com/questions/8112/use-legacy-rcx-sensors-with-ev3">this 
+	stackexchange thread</a>). Others have produced homemade converter cables which connect the sensors to the
+	correct pins on the EV3, but in any case RCX sensors are unsupported in the official EV3 software, so use
+	of such converters would have to be in conjunction with a third-party firmware such as LeJOS or
+	<a href="http://www.ev3dev.org/">ev3dev</a>.
+</p>
+
+<h3 id="ir_comms">I'm having troube downloading firmware or otherwise transferring large programs or files to the RCX!</h3>
+<p>
+	In my experience, the most common cause of communications failures is interference from bright room or
+	outside light. When downloading firmware or large files to the RCX, I find it helpful to place a box or
+	other opaque structure over the RCX and IR tower in order to prevent visible light interference.
+</p>
+<p>
+	Further discussion of other causes of communications failure can be found in
+	<a href="https://bricks.stackexchange.com/questions/1099/rcx-firmware-download-problem">this
+		stackexchange thread</a>.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
