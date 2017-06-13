@@ -58,6 +58,8 @@
 	software, and techniques necessary to use an RCX in 2017.
 </p>
 
+<hr/>
+
 <h2 id="why">Why use an RCX?</h2>
 <p>
 	There are several reasons you might want to use an RCX instead of an NXT or EV3:
@@ -93,7 +95,7 @@
 		<li>
 			1.0 - The original. The only revision to include a power input jack, so that in addition
 			to 6 AA batteries, it can also be powered by a 9-12V <b>AC</b> power supply. (Yes, you read that
-			right: It's an AC input)
+			right: It's an AC input).
 		</li>
 		<li>
 			1.5 (also called 1.1) - Included with the Robotics Invention System (RIS) 1.5 set.
@@ -145,14 +147,14 @@
 	LegoEngineering.com</a>, a joint project of Tufts University's Center for Engineering Education and
 	Outreach, LEGO Education, and various other educators. I have yet to try the new driver myself (because
 	my existing RCX programming setup consists of a 32-bit Windows VM running in VMWare Fusion on a Mac),
-	but it appears that at long last it is possible to use the USB IR tower under 64-bit windows. Note that
-	this driver is not the same driver included with several popular pieces of software for prigramming the
+	but it appears that at long last it is possible to use the USB IR tower under 64-bit Windows. Note that
+	this driver is not the same driver included with several popular pieces of software for programming the
 	RCX, such as ROBOTC or ROBOLAB, so if your software came with an included USB tower driver you'll likely
 	need to separately donwload and install the above-linked driver if you run 64-bit Windows.
 </p>
 <h3 id="motors">Motors</h3>
 <p>
-	Motors designed to work with the RCX come in 2 shapes, which I'll call "rectangular" and "cubic". 
+	RCX-compatible motors come in 2 shapes, which I'll call "rectangular" and "cubic". 
 	The cubic motors appear in more sets, and are in my opinion easier to work with.
 	<figure>
 		<img class="embed_image" src="/img/rcx_guide/motors.png">
@@ -167,7 +169,7 @@
 	revisions is that the older motors use internal gears made of metal, whereas in the newer motors the internal
 	gears are made of plastic. As a result, the older hardware revision is more durable. It's also heavier, which is
 	the best way to tell the difference between the two hardware revisions. You'll see the older revision described
-	on bricklink as "Older, heavier weight" and the newer revision described as "Newer, lighter weight".
+	on Bricklink as "Older, heavier weight" and the newer revision described as "Newer, lighter weight".
 </p>
 <h3 id="sensors">Sensors</h3>
 <p>
@@ -177,7 +179,7 @@
 	<a href="http://ccgi.dcpmicro.plus.com/DCPMICRO/lego.htm">DCP Microdevelopments</a>.
 	<figure>
 		<img class="embed_image" src="/img/rcx_guide/first_party_sensors.png">
-		<figcaption>Clockwise from top left: Light sensor, rotation sensor, temperature sensor,
+		<figcaption>Clockwise from bottom left: Light sensor, rotation sensor, temperature sensor,
 		touch sensor</figcaption>
 	</figure>
 </p>
@@ -409,16 +411,17 @@
 </p>
 <p>
 	<b>ROBOLAB</b> is the best of a couple of pieces of software officially distributed by LEGO for programming
-	RCX bricks. It's based on National Instruments LabView, and unlike later LabView-based Mindstorms software,
+	RCX bricks. It's based on National Instruments LabView, and unlike later LabView-based Mindstorms software (NXT-G and EV3-G),
 	the visual resemblence is striking. The latest version of ROBOLAB is 2.9.4c, though version 2.5.4 is similar;
 	the primary difference is that 2.9.4c can also program NXT bricks. Unfortunately, it can be pretty difficult to
 	get ahold of a copy of ROBOLAB these days if you don't already have one; relatively few copies are available on
-	Bricklink, and can go for upwards of $50.
+	Bricklink, and can go for upwards of $50. Note that after installing v2.9.4 from a CD, you'll want to also
+	install the 2.9.4c patch, which can be found <a href="http://www.legoengineering.com/robolab-2-9-4c-patch/">here</a>.
 </p>
 <p>
 	These days, I do most of my RCX programming in <b>ROBOTC</b>.
 	As the name implies, ROBOTC is a C-based language designed for robotics; versions of ROBOTC are also available
-	for NXT/EV3 programmable bricks, VEX IQ "robot brain" VEX Cortex/Pic microcontrollers, and Arduino. Support for
+	for NXT/EV3 programmable bricks, VEX IQ "robot brain", VEX Cortex/Pic microcontrollers, and Arduino. Support for
 	the RCX is not included with current versions of ROBOTC; however, a 
 	<a href="http://robotc.net/download/rcx/">legacy RCX version</a> is available, and this has the added advantage
 	of being free, whereas other versions of ROBOTC are not. ROBOTC also comes packaged with a pretty good
@@ -496,32 +499,32 @@
 
 <h3 id="mac">Mac</h3>
 <p>
-	If you have a modern Mac, the easiest thing to do is to program your RCX in a 32-bit Windows virtual
+	If you have a modern Mac, the easiest thing to do is to program your RCX in a Windows virtual
 	machine (using a piece of software like <a href="https://www.virtualbox.org/">VirtualBox</a>,
 	<a href="https://en.wikipedia.org/wiki/VMware_Fusion">VMWare Fusion</a>, or
 	<a href="http://www.parallels.com/">Parallels</a>). I've run various versions of ROBOLAB and ROBOTC
-	in a virtual machine on various macs, with no apparent loss of functionality.
+	in a virtual machine on various Macs, with no apparent loss of functionality.
 </p>
 <p>
 	Mac software for programming RCX bricks does exist, but is generally either classic Mac OS software or OS X 
-	software compiled for PowerPC, meaning that it won't run on modern macs. However, if you have an older mac
+	software compiled for PowerPC, meaning that it won't run on modern Macs. However, if you have an older Mac
 	running Mac OS 9 or an older version of OS X (10.5 or older for running PowerPC software, 
 	10.4 or older for running classic Mac OS software), it is often still possible to program an RCX natively
 	on a Mac.
 </p>
 <p>
-	LEGO released versions of <b>ROBOLAB</b> for the mac, and versions 2.5.4 and 2.9.4 are available as native OS X
-	software compiled for PowerPC. As far as I'm aware, the functionality of mac versions of ROBOLAB is identical
-	to the corresponding version on Windows, though I've never used v2.9.4 for mac. ROBOLAB for mac is
-	even harder to find online than ROBOLAB for windows, although it appears that later versions of the
-	software were distributed on a single disc containing both Windows and mac versions of the software.
+	LEGO released versions of <b>ROBOLAB</b> for the Mac, and versions 2.5.4 and 2.9.4 are available as native OS X
+	software compiled for PowerPC. As far as I'm aware, the functionality of Mac versions of ROBOLAB is identical
+	to the corresponding version on Windows, though I've never used v2.9.4 for mac. ROBOLAB for Mac is
+	even harder to find online than ROBOLAB for Windows, although it appears that later versions of the
+	software were distributed on a single disc containing both Windows and Mac versions of the software.
 </p>
 <p>
 	<b><a href="http://bricxcc.sourceforge.net/nqc/">NQC</a></b>,
 	<b><a href="http://www.lejos.org/rcx.php">LeJOS</a></b>, and
 	<b><a href="http://brickos.sourceforge.net/">brickOS</a></b> all have varying degrees of compatibility
-	with OS X. Sometimes, compiled versions of the software are available for mac; other times, it's necessary
-	to compile the software yourself. I'm not aware of any mac IDEs for any of those languages; the NQC website
+	with OS X. Sometimes, compiled versions of the software are available for the Mac; other times, it's necessary
+	to compile the software yourself. I'm not aware of any Mac IDEs for any of those languages; the NQC website
 	links to a Mac NQC IDE called <a href="http://homepage.mac.com/rbate/MacNQC/">MacNQC</a> but the link is
 	dead at the time of writing.
 </p>
@@ -572,13 +575,13 @@
 <h3 id="sharing">Sharing</h3>
 	<ul>
 		<li>
-			<b><a href="http://ldraw.org/">LDraw</a></b> - an open standard for LEGO CAD programs. Various editors are
-				available for may platforms. Unlike LDD (the official LEGO CAD program, which incedentally can 
+			<b><a href="http://ldraw.org/">LDraw</a></b> - an open standard for LEGO CAD programs. Various editors
+				are available for many platforms. Unlike LDD (the official LEGO CAD program, which incidentally can 
 				output to LDraw format), LDraw's parts library is much larger, and includes RCX components.
 		</li>
 		<li>
 			<b><a href="http://mindstorms.reddit.com">r/mindstorms</a></b> - Good place to ask questions
-			about the RCX and other Mindstorms products, as well as see things other people have done.
+			about the RCX and other Mindstorms products, as well as to see things other people have done.
 		</li>
 		<li>
 			<b><a href="https://bricks.stackexchange.com/">LEGO Stack Exchange</a></b> - Not RCX-specific 
