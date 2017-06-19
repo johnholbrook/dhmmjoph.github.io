@@ -96,18 +96,19 @@ imgurl: /img/rcx_guide/cover.png
 	</figure>
 </p>
 <h3 id="ir_tower_x64">USB Infrared Tower on 64-bit Windows</h3>
+<em><small>Thanks to Reddit user MindS1 for 
+	<a href="https://www.reddit.com/r/mindstorms/comments/6h19wn/thought_yall_might_like_to_read_an_article_i/diwdgkg/">
+		correcting a previous error</a> in this section.</small></em>
 <p>
 	For many years, the common wisdom was that the USB infrared tower was not supported on 64-bit versions of 
 	windows, the reason being that LEGO never wrote a 64-bit driver for the USB tower. Recently, however, a
 	64-bit compatible USB tower driver <a href="http://www.legoengineering.com/rcx-usb-tower-support/">
 	has become available</a>, courtesy of the people at <a href="http://www.legoengineering.com/">
 	LegoEngineering.com</a>, a joint project of Tufts University's Center for Engineering Education and
-	Outreach, LEGO Education, and various other educators. I have yet to try the new driver myself (because
-	my existing RCX programming setup consists of a 32-bit Windows VM running in VMWare Fusion on a Mac),
-	but it appears that at long last it is possible to use the USB IR tower under 64-bit Windows. Note that
-	this driver is not the same driver included with several popular pieces of software for programming the
-	RCX, such as ROBOTC or ROBOLAB, so if your software came with an included USB tower driver you'll likely
-	need to separately donwload and install the above-linked driver if you run 64-bit Windows.
+	Outreach, LEGO Education, and various other educators. Note that this driver is only compatible with
+	ROBOLAB software (more info on RCX languages <a href="#program">below</a>); thus, the USB IR tower can
+	only be used with ROBOLAB on 64-bit versions of Windows. The serial IR tower can be used on 64-bit versions
+	of windows in conjunction with a USB-to-DE-9 adapter.
 </p>
 <h3 id="motors">Motors</h3>
 <p>
@@ -363,8 +364,8 @@ imgurl: /img/rcx_guide/cover.png
 <h3 id="windows">Windows</h3>
 <p>
 	In my experience, programming an RCX brick is most easily done from a computer running Windows. Several
-	languages are available. If you plan to use the USB IR tower and a 64-bit version of Windows, you'll need
-	to install a quasi-third-party driver; <a href="#ir_tower_x64">see above</a> for more info.
+	languages are available. On 64-bit versions of Windows, the USB IR tower can only be used by ROBOLAB;
+	<a href="#ir_tower_x64">see above</a> for more info.
 </p>
 <p>
 	<b>ROBOLAB</b> is the best of a couple of pieces of software officially distributed by LEGO for programming
