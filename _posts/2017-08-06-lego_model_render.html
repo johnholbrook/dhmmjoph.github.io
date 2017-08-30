@@ -1,0 +1,153 @@
+---
+layout: LEGO
+title: I Can't Believe It's Not a Picture
+category: edu
+subhead: Rendering high-resolution images of LEGO models on a Mac
+summary: A tutorial for rendering high-resolution images of LEGO models on a Mac
+imgurl: /img/ldraw_render/output_render.png
+---
+
+<p>
+	While writing <a href="{{site.url}}/edu/2017/05/03/RCX_guide.html">my article on the RCX</a>, I found that there
+	were no high-resolution photographs of RCX-era LEGO&reg; parts available online. So, I decided to render my own
+	computer-generated images based on <a href="http://ldraw.org/">LDraw</a> models. This article outlines the procedure
+	I used to do this. While I rendered relatively simple images (with only a few LEGO&reg; parts at most in
+	each image), it could also be used to produce images of more complicated models, albeit likely with longer
+	render times.
+</p>
+
+<h2>Step 0: Install Required Software</h2>
+<p>
+	This procedure requires the following software:
+	<ul>
+		<li>
+			<a href="http://ldraw.org/help/getting-started.html">LDraw</a> - an open-source standard for LEGO CAD programs.
+			The base LDraw install does not include an editor or viewer, just the LDraw language itself and a parts library.
+		</li>
+		<li>
+			<a href="http://bricksmith.sourceforge.net/">Bricksmith</a> - an LDraw editor for the Mac.
+		</li>
+		<li>
+			(optional) <a href="http://ldd.lego.com/">LEGO&reg; Digital Designer (LDD)</a> - LEGO&reg;'s official CAD
+			program. Somewhat easier to use than Bricksmith, but less flexible and with a narrower parts library. 
+			If you choose to use LDD, you'll need to make use of its "Export to LDraw" functionality.
+		</li>
+		<li>
+			<a href="http://ldview.sourceforge.net/">LDview</a> - a 3D LDraw model viewer. We'll use it for its
+			"Export to POV-Ray Scene" functionality.
+		</li>
+		<li>
+			<a href="http://megapov.inetart.net/povrayunofficial_mac/">POV-Ray Unofficial for Mac</a> - POV-Ray
+			is an open-source image rendering program. An official Mac version does not exist; however, an unofficial
+			version does!
+		</li>
+	</ul>
+</p>
+
+<h2>Step 1: Creating the model</h2>
+<p>
+	In order to render a model, we first have to create a model in LDraw format. There are a couple ways to do this:
+</p>
+<p>
+	An LDraw editor such as <a href="http://bricksmith.sourceforge.net/">Bricksmith</a> will have the widest possible parts
+	library, and is the most flexible option. The main Bricksmith interface consists of two windows: One with multiple views
+	of the current model from different angles, and another containing a parts browser.
+	<figure>
+		<img class="embed_image" src="{{site.url}}/img/ldraw_render/bricksmith_interface.png">
+		<figcaption>Building a simple model in Bricksmith</figcaption>
+	</figure>
+</p>
+<p>
+	If you prefer to design your models in <a href="http://ldd.lego.com/">LEGO&reg; Digital Designer</a> (LDD), 
+	the good news is that it is capable of exporting a model to LDraw format using the "File > Export model" menu option.
+	However, the conversion from the .lxf to .ldr file format is not always perfect, and sometimes parts get left out 
+	of the exported model, so it's a good idea to open the LDraw model in Bricksmith (or some other LDraw editor) to 
+	verify that the model is complete and re-add any missing parts.
+	<figure>
+		<img class="embed_image" src="{{site.url}}/img/ldraw_render/ldd_export_dialog.png">
+		<figcaption>Exporting a simple model to LDraw format using LDD</figcaption>
+	</figure>
+</p>
+
+
+<h2>Step 2: Exporting to POV-Ray</h2>
+<p>
+	Now that the model is built and in the correct format, we'll create a POV-Ray scene file based on the model.
+	This is most easily achieved in <a href="http://ldview.sourceforge.net/">LDView</a>. While designed simply
+	for viewing LDraw models, LDView is also capable of generating POV-Ray scene files based on the current
+	model and perspective.
+</p>
+<p>
+	Open the LDraw model in LDView and use the mouse to view the model from approximately the desired angle.
+	Then, adjust the zoom level by selecting the "View > Zoom to fit" menu option.
+	<figure>
+		<img class="embed_image" src="{{site.url}}/img/ldraw_render/ldview.png">
+		<figcaption>Viewing the model and adjusting the camera position in LDView</figcaption>
+	</figure>
+</p>
+<p>
+	Once the camera position is adjusted to your liking, save the POV-Ray scene file using the
+	"File > Export" menu option in LDView.
+</p>
+
+<h2>Step 3: Checking the Image</h2>
+<p>
+	Before rendering the full-size image, check to make sure that the camera position and zoom level in the file
+	exported by LDView are acceptable. Open the .pov file in POV-Ray. If the Render Preferences window
+	is not already shown, bring it up with the "Window > Render Preferences" menu option. Under the
+	"Image and Quality" tab, change the resolution to something relatively small (e.g. 640x480) and
+	perform a test render by clicking the "Render" button. Check the resulting image to make sure
+	the camera position and zoom level are acceptable.
+	<figure>
+		<img class="embed_image" src="{{site.url}}/img/ldraw_render/test_render.png">
+		<figcaption>Performing a test render in LDView</figcaption>
+	</figure>
+</p>
+<p>
+	It's possible to change the camera position and zoom level from within POV-Ray; however, I find it easier
+	to change them by re-opening the model in LDView, changing the camera position or zooming, and then
+	re-exporting a new POV-Ray scene file. Continue this cycle of re-exporting and test rendering until the
+	camera position and zoom level are acceptable.
+</p>
+<p>
+	Once the camera position is acceptable, examine some of the preferences that are editable by
+	changing lines near the top of the .pov file. Depending on the mature of your model and the
+	intended use of the final image, you may or may not want the image to include shadows, reflections,
+	writing on the top of studs, or other options. Edit the options accordingly.
+	<figure>
+		<img class="embed_image" src="{{site.url}}/img/ldraw_render/pov_ray_options.png">
+		<figcaption>Some of the many options that can be changed by editing the POV-Ray scene file</figcaption>
+	</figure>
+</p>
+
+<h2>Step 4: Rendering</h2>
+<p>
+	Once you're happy with the camera position and rendering settings, it's time to render the full-sized image!
+	Return to the render preferences window and set the resolution to whatever you want the resolution of the
+	output image to be. Depending on your system, high-resolution images of complicated models could take a while
+	to render, but the result can look pretty good:
+	<figure>
+		<a href="{{site.url}}/img/ldraw_render/output_render.png">
+			<img class="embed_image" src="{{site.url}}/img/ldraw_render/output_render.png">
+		</a>
+		<figcaption>
+			Output image at a resolution of 2160x1620. Click image to view at full resolution.
+		</figcaption>
+	</figure>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

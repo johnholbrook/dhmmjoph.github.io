@@ -24,7 +24,8 @@
 		<meta name="msapplication-TileImage" content="/icons/mstile-144x144.png">
 		<meta name="msapplication-config" content="/icons/browserconfig.xml">
 		<meta name="theme-color" content="#49c421">
-		<!-- END Icon Gubbins -->	</head>
+		<!-- END Icon Gubbins -->	
+	</head>
 	<body>
 		<div class="content title">
 			<h1 id="title">John Holbrook</h1>
@@ -46,6 +47,7 @@
 					<a href="https://www.youtube.com/channel/UCwghc9-xTrSMLlSjcYd7e0A">YouTube</a>
 				</span>
 			</nav>
+		</div>
 		<div class="content body">
 			<h1>{{ page.title }}</h1>
 			<!-- Content goes here -->
@@ -55,23 +57,23 @@
 
 			<h1>Latest Pages</h1>
 			{% assign post1 = site.posts[0] %}
-			{% assign post2 = site.posts[2] %}
+			{% assign post2 = site.posts[1] %}
 			<div class="new_posts_wrapper">
-				<a class="new_post_link" href="{{post1.url}}">
-				<span class="new_post" id="new_post_1">
-					<img class="new_post_img" src="{{post1.imgurl}}">
-					<div class="new_post_head">{{post1.title}}</div>
-					<div class="new_post_subhead">{{post1.subhead}}</div>
+				<span class="new_post">
+					<a class="new_post_link" href="{{post1.url}}">
+						<img class="new_post_img" src="{{post1.imgurl}}">
+						<div class="new_post_head">{{post1.title}}</div>
+						<div class="new_post_subhead">{{post1.subhead}}</div>
+					</a>
 				</span>
-				</a>
-
-				<a class="new_post_link" href="{{post2.url}}">
-				<span class="new_post" id="new_post_2">
-					<img class="new_post_img" src="{{post2.imgurl}}">
-					<div class="new_post_head">{{post2.title}}</div>
-					<div class="new_post_subhead">{{post2.subhead}}</div>
+				
+				<span class="new_post">
+					<a class="new_post_link" href="{{post2.url}}">
+						<img class="new_post_img" src="{{post2.imgurl}}">
+						<div class="new_post_head">{{post2.title}}</div>
+						<div class="new_post_subhead">{{post2.subhead}}</div>
+					</a>
 				</span>
-				</a>
 				<br/>
 			</div>
 			<br/>

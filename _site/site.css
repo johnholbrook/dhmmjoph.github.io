@@ -55,6 +55,12 @@ body ul{
 .new_posts_wrapper{
 	width:100%;
 	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction:row;
+	align-content:center;
+	align-items: center;
+	justify-content:center;
 }
 .new_post_link:link{
 	color:initial;
@@ -71,18 +77,13 @@ body ul{
 	color: blue;
 }
 .new_post{
-	max-width: 48%;
+	max-width: 40%;
 	margin:1%;
+	flex-basis: 48%;
 }
 .new_post_img{
 	width:auto;
 	height:15em;
-}
-#new_post_1{
-	float:left;
-}
-#new_post_2{
-	float:right;
 }
 .new_post_head{
 	font-size:x-large;
