@@ -36,7 +36,10 @@ body ul{
 .footer {
 	text-align: center;
 }
-
+.todo{
+	color:red;
+	background-color: black;
+}
 .quote {
 	font-style: italic;
 	text-align:left;
@@ -60,7 +63,7 @@ body ul{
 	flex-direction:row;
 	align-content:center;
 	align-items: center;
-	justify-content:center;
+	justify-content:flex-start;
 }
 .new_post_link:link{
 	color:initial;
@@ -77,9 +80,10 @@ body ul{
 	color: blue;
 }
 .new_post{
-	max-width: 50%;
+	max-width: 48%;
 	margin:1%;
 	flex-basis: 48%;
+	flex-shrink: 0;
 }
 .new_post_img{
 	width:auto;
