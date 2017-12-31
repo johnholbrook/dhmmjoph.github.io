@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PTC Fuses in VEX Robots&#58; A Guide - John Holbrook</title>
+		<script src="http://localhost:4000/analytics.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://localhost:4000/site.css">
+		<link rel="shortcut icon" href="/icons/favicon.ico">
+		<!-- BEGIN Icon Gubbins -->
+		<!--iOS Homescreen Pinning -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png">
+
+		<!--Android Homescreen Pinning -->
+		<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/icons/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/icons/manifest.json">
+
+		<!--Windows Start Screen/Menu Pinning -->
+		<meta name="msapplication-TileColor" content="#ff0000">
+		<meta name="msapplication-TileImage" content="/icons/mstile-144x144.png">
+		<meta name="msapplication-config" content="/icons/browserconfig.xml">
+		<meta name="theme-color" content="#49c421">
+		<!-- END Icon Gubbins -->
+
+		<!-- Various Follow buttons (used primarily on the contact page, but also possibly elsewhere -->
+		<!--GitHub-->
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+		<!--Twitter-->
+		<script src="http://localhost:4000/twitter.js"></script>
+		<!--YouTube-->
+		<script src="https://apis.google.com/js/platform.js"></script>
+	</head>
+	<body>
+		<div class="content title">
+			<h1 id="title">John Holbrook</h1>
+			<nav>
+				<span>
+					<a href="http://localhost:4000/index.html">Home</a>
+				</span>
+				<span>
+					<a href="http://localhost:4000/about.html">About</a>
+				</span>
+				<span>
+					<a href="http://localhost:4000/projects.html">Projects</a>
+				</span>
+				<span class="dropdown">
+					<a href="http://localhost:4000/contact.html">Contact</a>
+					<a href="mailto:contact@johnholbrook.us">Email</a>
+					<a href="https://twitter.com/whole_brook">Twitter</a>
+					<a href="https://github.com/dhmmjoph">GitHub</a>
+					<a href="https://www.youtube.com/channel/UCwghc9-xTrSMLlSjcYd7e0A">YouTube</a>
+				</span>
+			</nav>
+		</div>
+		<div class="content body">
+			<!-- Content goes here -->
+			<h1>PTC Fuses in VEX Robots&#58; A Guide</h1>
+			<em>Or, how to avoid your motors "stalling" in the middle of a match</em>
+			<p>
+	As a former <a href="https://www.vexrobotics.com/competition">VRC</a> competitor, and later as an event volunteer, I’ve often seen teams running
+	into problems with their robots’ PTC fuses. This usually manifests itself as certain motors “stalling” or failing to run temporarily, but
+	running again after several seconds of inactivity. So, I thought I’d write up an overview on the configuration of a VEX robot’s PTC fuses and
+	how it can affect robot design.
+</p>
+
+<h2>What is a PTC fuse?</h2>
+<p>
+	Essentially, a PTC fuse is an electrical component whose resistance increases with temperature ("PTC" stands for "Positive Temperature
+	Coeffecient"). PTC fuses are used in VEX robots to prevent motors form drawing too much current, damaging their internals or other
+	sensitive electronics. When the current passing through a PTC fuse is above a rated amperage, the fuse begins to heat up. If it gets too hot, 
+	the resistance will become so high that no current is able to pass through the fuse. Once the fuse cools back down, current can again flow.
+	For this reason, PTC fuses are sometimes known as "<a href="https://en.wikipedia.org/wiki/Resettable_fuse">resettable fuses</a>".
+</p>
+
+<h2>Where are PTC fuses located in VEX robots?</h2>
+<p>
+	Each motor on a VEX robot is protected by 2 PTC fuses: one in the motor itself, and the other in the Cortex or Power Expander to which it’s 
+	connected. The Cortex contains 2 PTC fuses: One protecting ports 1-5 and another protecting ports 6-10. Further, another PTC fuse protects
+	the ports on the power expander. Motors connected to the power expander are protected by the PTC fuse in the expander, and are not connected
+	to the fuse on whatever Cortex port they’re connected to. 
+</p>
+<p>
+	The image below shows a sample wiring arrangement for a bunch of motors, and the
+	accompanying table shows which PTC fuses protect each motor.
+</p>
+
+<figure>
+<img class="embed_image" src="http://localhost:4000/img/cortex_wiring.png">
+
+<table>
+	<tr>
+		<th>Motor</th>
+		<th>Fuses</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>Motor 1, Power Expander</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>Motor 2, Power Expander</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>Motor 3, Cortex 1-5</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>Motor 4, Cortex 6-10</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>Motor 5, Cortex 6-10</td>
+	</tr>
+</table>
+</figure>
+
+<h2>Why is this important?</h2>
+<p>
+	VEX forum user <a href="https://www.vexforum.com/index.php/member/3759-jpearman">jpearman</a> conducted 
+	<a href="https://www.vexforum.com/index.php/7208-ptc-performance-measurements/p1">testing</a>
+	of the PTC fuses used in the Cortex and motors, concluding that the PTC fuses in the Cortex/Expander will
+	trip at 3 to 4 amps, while those in a 393 motor will trip at between 0.9 to 1.7 amps, depending on ambient
+	conditions and variations in individual parts. Based on these values, if there are several motors connected
+	to the same PTC fuse under simultaneous heavy load, it’s pretty easy to trip the Cortex/Expander PTC fuse,
+	and temporarily disable every motor on that bank of ports, which can be disruptive or disabling during VRC match play.
+</p>
+
+<h2>How should this affect my robot design?</h2>
+When designing a robot, you should think about which motors will be subject to heavy loads at what times, and plan
+how to connect motors to the Cortex accordingly, so that heavy loads are spread across multiple Cortex/Expander
+PTC fuses.
+
+<h2>What if I'm tripping a PTC fuse in a motor?</h2>
+If your robot consistently trips a motor PTC fuse, you should first examine the mechanism it’s powering. Minimizing
+friction, checking for slightly bent shafts, adding passive assistance (i.e., via rubber bands), or even adding
+more motors are all actions that could alleviate such problems. However, at busy tournaments, sometimes there isn’t
+ time for PTC fuses to cool fully between matches, which can lead to reduced performance. In this case, some teams
+ have reported success with <a href="http://a.co/as48a2R">industrial “freeze spray” products</a>. You can also use
+ upside-down cans of air (for cleaning keyboards and the like), which schools might already have, though my
+ personal preference is for the freeze spray. A downside of using freeze spray, in my experience, is that some team
+ members like to spray themselves and each other with it, which could be dangerous, and is certainly a waste of 
+ valuable freeze spray.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+		<div class="content footer">
+			<small>&copy; 2017 John Holbrook</small>
+		</div>
+	</body>
+</html>
