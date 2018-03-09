@@ -1,0 +1,46 @@
+body{
+	text-align: center;
+}
+#convert_button{
+	font-size: 2em;
+}
+#reset_button{
+	font-size: 2em;
+}
+#ascii_results_box{
+	font-family: monospace;
+}
+table {
+	margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td{
+	margin:1em;
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+td{
+	padding:0 0.5em;
+}
+.result_wrapper{
+	background-color: #DDDDDD;
+	border-radius: 1em;
+	padding: 1em;
+	margin: 0.5em;
+	display: none;
+}
+#options{
+	display: none;
+	background-color: #DDDDDD;
+	border-radius: 1em;
+	padding: 1em;
+	margin: 0.5em;
+}
+ol{
+	display: inline-block;
+}
+textarea{
+	overflow-wrap: normal;
+	overflow-x: scroll;
+}

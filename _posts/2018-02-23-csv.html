@@ -1,0 +1,70 @@
+---
+layout: default
+title: CSV Converter
+category: misc
+subhead: Convert CSV data to HTML, LaTeX, and ASCII Tables
+summary: Convert CSV data to HTML, LaTeX, and ASCII Tables
+imgurl: /img/csv.png 
+---
+		<link rel="stylesheet" type="text/css" href="{{site.url}}/csv/csv.css">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="{{site.url}}/csv/jquery-csv.js"></script>
+		<h1>CSV to ASCII Table</h1>
+		<h2>CSV Input:</h2>
+		<br/>
+		<textarea rows="20" cols="100" id="csv_input"></textarea>
+		<br/>
+		<button id="toggle_options" onclick="toggle_options()">Show Options</button>
+		<br/>
+		<div id="options" >
+			<input type="checkbox" id="use_headers" checked>Treat first line as header</input>
+			<br/>
+			<input type="checkbox" id="latex-row-lines">LaTeX: lines after every row in body</input>
+			<br/>
+		</div>
+		<br/>
+		<button id="convert_button" onclick="convert()">Convert</button>
+		<button id="reset_button" onclick="reset()">Reset</button>
+
+		<br/>
+
+		<div class="result_wrapper">
+			<h2>HTML Table</h2>
+			<span><textarea rows="20" cols="100" id="html_source_box" wrap="off"></textarea></span>
+			<br/><br/>
+			<span id="html_results_box">
+			</span>
+		</div>
+
+		<br/>
+
+		<div class="result_wrapper">
+			<h2>LaTeX Table</h2>
+			<textarea rows="20" cols="100" id="latex_source_box" wrap="off"></textarea>
+		</div>
+	
+		<br/>
+
+		<div class="result_wrapper">
+			<h2>ASCII Table</h2>
+			<textarea rows="20" cols="100" id="ascii_results_box" wrap="off"></textarea>
+		</div>
+
+
+		<h2>About This Tool</h2>
+		<p>
+			This tool solves a couple of related problems:
+			<br/>
+			1. Producing tables in markup languages like HTML and LaTeX is a pain.
+			<br/>
+			2. Organizing information into tables in plain text documents is even more of a pain.
+			<br/> <br/>
+			However, editing CSV files (in applications such as Excel, Numbers, etc.) is easy!
+			So this tool takes CSV data as input and produces source code for tables in HTML and LaTeX,
+			as well as a plain-text, monospaced table, suitable for use on practically any computer anywhere.
+		</p>
+
+		<script src="{{site.url}}/csv/csv.js"></script>
+
+	</body>
+</html>
