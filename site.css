@@ -96,6 +96,21 @@ body ul{
 .new_post_subhead{
 	font-size: large
 }
+
+.podcast_desc{
+	padding: 1em;
+	//max-width: 30%;
+	text-align: center;
+	margin: 0 auto;
+}
+.podcast_desc > img{
+	max-width: 15em;
+}
+.podcast_desc > a{
+	font-size: 1.3em;
+	padding: 0.5em;
+}
+
 figcaption{
 	font-size: small;
 }
