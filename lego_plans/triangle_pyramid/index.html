@@ -1,0 +1,144 @@
+---
+layout: LEGO
+title: Triangle/Pyramid Math
+subhead: Students build triangles &amp; pyramids from 2x2 LEGO bricks to learn about the triangular and pyrimidal numbers
+---
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<small>
+	Adapted &amp; expanded from the
+	<a href="http://www.marshall.edu/LEGO/lessonplans/PyramidSeries/PyramidSeries.html">
+	original plan</a> by Linda Hamilton.
+</small>
+
+<h3>Triangles</h3>
+<p>
+	Construct a "triangle" of some reasonable hight using 2x2 LEGO bricks:
+	<figure>
+		<img class="embed_image" src="triangle.png"/>
+		<figcaption>
+			A "triangle" of height 6 constructed from 2x2 LEGO bricks
+		</figcaption>
+	</figure>
+	Count the total number of bricks in the triangle. Construct a table
+	(like the one below) showing the total number of bricks in triangles
+	of various heights.
+	<figure>
+		<table>
+			<tr>
+				<th>Height</th>
+				<th>Total Number of Bricks</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td></td>
+			</tr>
+		</table>
+	</figure>
+</p>
+<p>
+	In mathematics, the total number of bricks in a triangle of height 
+	<i>n</i> is called the <i>nth triangle number</i>. It could be
+	calculated as: 
+	$$ \sum_{i=1}^n i = 1 + 2 + \ldots + (n-1) + n $$
+	In other words, layer \(i\) has \(i\) bricks, and we're adding the
+	number of bricks in each layer from \(1\) to \(n\) to get the total
+	number of bricks in the triangle.
+</p>
+<p>
+	It turns out that this sum has a simple closed-form solution (that is, one 
+	representable as a normal algebraic expression, without the
+	summation symbol):
+	$$ \sum_{i=1}^n i = \frac{n(n+1)}{2} $$
+	Younger students could convince themselves that this is true by calculating
+	\( \frac{n(n+1)}{2} \) for various values of \(n\) and comparing the results
+	to those in the table above. More advanced mathemeticians could try to prove
+	the result by induction (indeed, this is the canonical example of
+	proof by induction).
+</p>
+
+<br/>
+
+<h3>Pyramids</h3>
+<p>
+	We can also construct "pyramids" from 2x2 LEGO bricks:
+	<figure>
+		<img class="embed_image" src="pyramid.png"/>
+		<figcaption>
+			A "pyramid" of height 6 constructed from 2x2 LEGO bricks
+		</figcaption>
+	</figure>
+	Like with the triangles, the total number of bricks in a pyramid
+	of height n (the "nth square pyrimidal number") could be
+	calculated using a sum. Each layer has \(i^2\) bricks, so the total
+	number of bricks is:
+	$$ \sum_{i=1}^n i^2 $$
+	This sum also has a closed-form solution:
+	$$ \sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6} $$
+	Again, this could be "verified" by manually counting the number of bricks
+	in different sized pyramids, or proven more rigorously by induction.
+</p>
+
+<h4>Exercise: Saving Bricks</h4>
+<p>
+	As pyramids get tall, the total number of bricks required grows quickly.
+	To build a pyramid of height 10, we would need
+	\( \frac{(10)(11)(21)}{6} = 385 \) bricks! We can significantly reduce
+	the total number of bricks required by making the pyramid "hollow" - 
+	that is, by removing any bricks that aren't visible from the top:
+	<figure>
+		<img class="embed_image" src="hollow_pyramid.png">
+		<figcaption>A "hollow" pyramid of height 6, seen from below</figcaption>
+	</figure>
+</p>
+
+<p>
+	As a challenge, try to answer the following questions:
+	<ol>
+		<li>How many bricks are in layer \(i\) of a hollow pyramid?</li>
+		<li>How can we express the total number of bricks in a pyramid
+		of height \(n\) as a sum?</li>
+		<li>What is the closed-form solution to that sum?</li>
+		<li>For a pyramid of height \(n\), how many bricks do we save
+		by constructing a hollow pyramid rather than a solid one?</li>
+	</ol>
+
+	Sample answers to those questions are available on 
+	<a href="hollow_answers.html">a separate page</a>.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+

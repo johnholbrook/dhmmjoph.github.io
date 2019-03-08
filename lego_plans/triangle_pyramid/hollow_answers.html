@@ -1,0 +1,96 @@
+---
+layout: LEGO
+title: Hollow Pyramid Answers
+---
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+Below are answers to the hollow pyramid challenge problems given on the
+<a href="index.html">Triangle &amp; Pyramid Math</a> page.
+
+<h3>How many bricks are in layer \(i\) of a hollow pyramid?</h3>
+<p>
+	Each layer is a hollow square of length \( i \times i \). So, a reasonable
+	guess for the number of bricks in an \( i \times i \) hollow square is
+	\( 4i \). However, the 4 bricks in the corners of the square are each
+	part of 2 sides, and so are double-counted by the above guess. Thus, 
+	the total number of bricks in layer \( i \) is:
+	$$ 4i - 4 $$
+</p>
+<p>
+	Notice that this expression predicts that the first layer of a hollow
+	pyramid has \( (4)(1) - 4 = 0 \) bricks, which is obviously false.
+	However, the expression gives the correct result for all other values
+	of \( n \). Thus, technically the number of bricks in layer i of a
+	hollow pyramid is the piecewise function:
+	$$
+		b(i) = 
+		\left\{
+		\begin{array}{ll}
+			1 & i = 1\\
+			4i - 4 & i > 1\\
+		\end{array}
+		\right.
+	$$
+</p>
+
+<h3>How can we express the total number of bricks in a pyramid of height \(n\) as a sum?</h3>
+<p>
+	Since layer 1 has 1 brick, and each subsequent layer \(i\) has \(4i-4\)
+	bricks, the total number of bricks could be calculated as:
+	$$ 1 + \sum_{i=2}^n (4i-4) $$
+
+	Since \( 4i-4 = 0 \) for \(i=1\), this is equal to:
+	$$ 1 + \sum_{i=1}^n (4i-4) $$
+	which will make things easier when calculating the closed-form solution below.
+</p>
+
+<h3>What is the closed-form solution to that sum?</h3>
+<p>
+	By using the properties of summation notation, we can break the sum into
+	simpler sums:
+	$$ 1 + \sum_{i=1}^n (4i-4)  =  1 + 4\sum_{i=1}^n i - \sum_{i=1}^n 4 $$
+	As we saw earlier, \( \sum_{i=1}^n i = \frac{n(n+1)}{2} \). Further,
+	\( \sum_{i=1}^n 4 = 4n \). Then our expression becomes:
+	$$ 1 + 4 \left(\frac{n(n+1)}{2}\right) - 4n $$
+	From there, some relatively simple algebra can be used to simplify
+	the expression:
+	$$
+		\begin{eqnarray}
+			&   & 1 + 4 \left(\frac{n(n+1)}{2}\right) - 4n \\
+			& = & 2n(n+1) - 4n + 1\\
+			& = & 2n^2 + 2n - 4n + 1\\
+			& = & 2n^2 - 2n + 1\\
+		\end{eqnarray}
+	$$
+
+	So, a hollow pyramid of height \( n \) requires \( 2n^2 - 2n + 1 \) bricks.
+</p>
+
+<h3>For a pyramid of height \(n\), how many bricks do we save by constructing a hollow pyramid rather than a solid one?</h3>
+<p>
+	The number of bricks saved is equal to the number of bricks in the
+	solid pyramid minus the number of bricks in the hollow pyramid:
+
+	$$  
+		\begin{eqnarray}
+			&   & \frac{n(n+1)(2n+1)}{6} - (2n^2 - 2n + 1)\\
+			& = & \frac{2n^3 + 3n^2 + n}{6} - 2n^2 + 2n - 1\\
+			& = & \frac{2n^3 + 3n^2 + n}{6} - \frac{12n^2}{6} + \frac{12n}{6} - \frac{6}{6}\\
+			& = & \frac{2n^3 - 9n^2 + 13n - 6}{6}\\
+		\end{eqnarray}
+	$$
+</p>
+<p>
+	Alternately, notice that making a solid pyramid of height \(n\) hollow
+	involves removing from it a solid pyramid of height \( n-2 \).
+	Then the number of bricks saved is:
+	$$
+		\begin{eqnarray}
+			\sum_{i=1}^{n-2} i^2
+			& = & \frac{(n-2)([n-2]+1)(2[n-2]+1)}{6}\\
+			& = & \frac{(n-2)(n-1)(2n-3)}{6}\\
+			& = & \frac{2n^3 - 9n^2 + 13n - 6}{6}\\
+		\end{eqnarray}
+	$$
+	which is the same thing we obtained using the other method.
+</p>
