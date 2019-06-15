@@ -2,6 +2,8 @@ var ascii_results_area = document.getElementById("ascii_results_box");
 var html_results_area = document.getElementById("html_results_box");
 var html_source_area = document.getElementById("html_source_box");
 var latex_results_area = document.getElementById("latex_source_box");
+var md_results_area = document.getElementById("md_results_box");
+
 
 function convert(){
 	var csv_input = document.getElementById("csv_input").value;
@@ -64,6 +66,21 @@ function convert(){
 	}
 	latex_result += "\\end{tabular}";
 	latex_results_area.innerHTML = latex_result;
+
+	/*MARKDOWN TABLE*/
+	//each line of the MD table uses the same format as the ASCII table, so we
+	//only need a custom function for the separator between the header and
+	//data, if applicable
+	var md_result = "";
+	md_result += ascii_line(converted_data[0], col_lengths);
+	if (using_headers){
+		md_result += md_header_sep(col_lengths);
+	}
+	for (var i=1; i<converted_data.length; i++){
+		md_result += ascii_line(converted_data[i], col_lengths);
+	}
+
+	md_results_area.innerHTML = md_result;
 
 	show_hidden_items();
 }
@@ -146,6 +163,18 @@ function latex_line(data, isHeader, rowLines){
 	if (isHeader || rowLines){
 		tmp += "\\hline\n";
 	}
+	return tmp;
+}
+
+function md_header_sep(line_lengths){
+	var tmp = "| ";
+	for (var i = 0; i<line_lengths.length; i++){
+		for (var j=0; j<line_lengths[i]; j++){
+			tmp += "-";
+		}
+		tmp += " | ";
+	}
+	tmp += "\n";
 	return tmp;
 }
 

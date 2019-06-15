@@ -7,7 +7,7 @@ body{
 #reset_button{
 	font-size: 2em;
 }
-#ascii_results_box{
+#ascii_results_box, #md_results_box{
 	font-family: monospace;
 }
 table {
