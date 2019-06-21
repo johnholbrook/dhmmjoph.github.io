@@ -1,216 +1,155 @@
-var ascii_results_area = document.getElementById("ascii_results_box");
-var html_results_area = document.getElementById("html_results_box");
-var html_source_area = document.getElementById("html_source_box");
-var latex_results_area = document.getElementById("latex_source_box");
-var md_results_area = document.getElementById("md_results_box");
-
 
 function convert(){
-	var csv_input = document.getElementById("csv_input").value;
-	var using_headers = document.getElementById("use_headers").checked;
-	var using_latex_row_lines = document.getElementById("latex-row-lines").checked;
-	var converted_data = $.csv.toArrays(csv_input);
-	var ascii_result = "";
+	let using_headers = document.getElementById('use_headers').checked;
+	let using_latex_row_lines = document.getElementById('latex-row-lines').checked;
+	let converted_data = $.csv.toArrays($('#csv_input').val());
 	
 	/*ASCII TABLE*/
 	//find the required length of each column
-	var col_lengths = [];
-	for (var col=0; col<converted_data[0].length; col++){
-		var max = 0;
-		for (var row=0; row<converted_data.length; row++){
-			if (converted_data[row][col].length > max){
-				max = converted_data[row][col].length;
-			}
-		}
-		col_lengths.push(max);
-	}
-	//generate top line
-	ascii_result += ascii_separator(col_lengths);
-	//add Headings
-	ascii_result += ascii_line(converted_data[0], col_lengths);
-	//generate separator below header, if applicable
-	if(using_headers){
-		ascii_result += ascii_separator(col_lengths);
-	}
-	//add subsequent rows
-	for (var i=1; i<converted_data.length; i++){
-		ascii_result += ascii_line(converted_data[i], col_lengths);
-	}
-	//generate bottom line
-	ascii_result += ascii_separator(col_lengths);
-	//write result to ASCII result area
-	ascii_results_area.value = ascii_result;
+	col_lengths = Array(converted_data[0].length).fill(0);
+	$(converted_data).each((y, row) =>
+		$(row).each((x, val) => {
+			col_lengths[x] = Math.max(col_lengths[x], val.length);
+		})
+	);
+	$('#ascii_results_box').val(
+		ascii_separator(col_lengths) + //top line
+		ascii_line(converted_data[0], col_lengths) + //header line
+		(using_headers ? ascii_separator(col_lengths) : '') + //header separator line
+		$(converted_data.slice(1))
+			.map((i, j) => ascii_line(j, col_lengths)).get().join('') + //subsequent rows
+		ascii_separator(col_lengths) //bottom line
+	);
 
 	/*HTML TABLE*/
-	var html_result = "<table>\n";
-	//write first line, as a header if applicable
-	html_result += html_line(converted_data[0], using_headers);
-	//write subsequent lines
-	for (var i=1; i<converted_data.length; i++){
-		html_result += html_line(converted_data[i], false);
-	}
-	html_result += "</table>";
+	let html_result = '<table>\n' +
+		$(converted_data).map((i, v) =>
+			html_line(v, i == 0 ? using_headers : false)
+		).get().join('') +
+		'</table>';
 	//write result to HTML results & source areas
-	html_results_area.innerHTML = html_result;
-	html_source_area.innerHTML = html_result;
+	$('#html_results_box').html(html_result);
+	$('#html_source_box').val(html_result);
 
 	/*LATEX TABLE*/
-	var latex_result = latex_begin(converted_data[0].length);
-	//write first line, as a header if applicable
-	latex_result += latex_line(converted_data[0], using_headers, using_latex_row_lines);
-	for (var i=1; i<converted_data.length; i++){
-		latex_result += latex_line(converted_data[i], false, using_latex_row_lines);
-	}
-	if (!using_latex_row_lines){
-		latex_result += "\\hline\n";
-	}
-	latex_result += "\\end{tabular}";
-	latex_results_area.innerHTML = latex_result;
+	$('#latex_source_box').val(
+		latex_begin(converted_data[0].length) +
+		latex_line(converted_data[0], using_headers, using_latex_row_lines) + //first line
+		$(converted_data.slice(1)).map((i, j) => 
+			latex_line(j, false, using_latex_row_lines)
+		).get().join('') +
+		(using_latex_row_lines ? '' : '\\hline\n') +
+		'\\end{tabular}'
+	);
 
 	/*MARKDOWN TABLE*/
 	//each line of the MD table uses the same format as the ASCII table, so we
 	//only need a custom function for the separator between the header and
 	//data, if applicable
-	var md_result = "";
-	md_result += ascii_line(converted_data[0], col_lengths);
-	if (using_headers){
-		md_result += md_header_sep(col_lengths);
-	}
-	for (var i=1; i<converted_data.length; i++){
-		md_result += ascii_line(converted_data[i], col_lengths);
-	}
-
-	md_results_area.innerHTML = md_result;
+	$('#md_results_box').val(
+		ascii_line(converted_data[0], col_lengths) + //header line
+		(using_headers ? md_separator(col_lengths) : '') + //header separator line
+		$(converted_data.slice(1))
+			.map((i, j) => ascii_line(j, col_lengths)).get().join('') //subsequent rows
+	);
 
 	show_hidden_items();
 }
 
+/*
+	Generates a horizontal line of an ASCII art table.
+
+	Inputs:
+		lengths - Array of column widths
+	
+	Sample Input:
+		([3, 4, 2])
+	Sample Output:
+		'+-----+------+----+'
+*/
 function ascii_separator(lengths){
-	var tmp = "";
-	for (var i=0; i<lengths.length; i++){
-		tmp += "+";
-		for (var j=0; j<lengths[i]+2; j++){
-			tmp += "-";
-		}
-	}
-	//tmp += "+<br/>";
-	tmp += "+\n";
-	return tmp;
+	return '+' + $(lengths).map((i, length) => '-'.repeat(length + 2)).get().join('+') + '+\n';
 }
 
+/*
+	Generates one line of cells for an ASCII art table.
+
+	Inputs:
+		data    - Array of cell contents
+		lengths - Array of column widths
+	
+	Sample Input:
+		(['a', 'b', 'c'], [3, 4, 2])
+	Sample Output:
+		'| a   | b    | c  |'
+*/
 function ascii_line(data, lengths){
-	var tmp = "";
-	for (var i=0; i<data.length; i++){
-		var lengthOfCell = lengths[i]+2;
-		//tmp += "|&nbsp;";
-		tmp += "| ";
-		tmp += data[i];
-		var currentLength = data[i].length + 1;
-		while (currentLength < lengthOfCell){
-			//tmp += "&nbsp;";
-			tmp += " ";
-			currentLength++;
-		}
-	}
-	//tmp += "|<br/>";
-	tmp += "|\n";
-	return tmp;
+	return '| ' +
+		$(data).map((i, text) => 
+			text.padEnd(lengths[i], ' ')
+		).get().join(' | ') +
+		' |\n';
 }
 
+/*
+	Generates the HTML for one row of an HTML table.
+
+	Inputs:
+		data     - Array of cell contents
+		isHeader - Boolean indicating whether this row is a header row
+	
+	Sample Input:
+		(['a', 'b', 'c'], true)
+	Sample Output:
+		'\t<tr>\n\t\t<th>a</th>\n\t\t<th>b</th>\n\t\t<th>c</th>\n\t</tr>\n'
+*/
 function html_line(data, isHeader){
-	var tmp = "";
-	tmp += "\t<tr>\n";
-	for (var i=0; i<data.length; i++){
-		if (isHeader){
-			tmp += ("\t\t<th>" + data[i] + "</th>\n");
-		}
-		else{
-			tmp += ("\t\t<td>" + data[i] + "</td>\n");
-		}
-	}
-	tmp += "\t</tr>\n";
-	return tmp;
+	let tag = isHeader ? 'th' : 'td';
+	return '\t<tr>\n' +
+		$(data).map((i, text) =>
+			'\t\t<' + tag + '>' + text + '</' + tag + '>\n'
+		).get().join('') +
+		'\t</tr>\n';
 }
 
 function latex_begin(numCols){
-	var tmp = "\\begin{tabular}{";
-	for (var i=0; i<numCols; i++){
-		tmp += "|c";
-	}
-	tmp += "|}\n\\hline\n";
-	return tmp;
+	return '\\begin{tabular}{' +
+		'|c'.repeat(numCols) +
+		'|}\n\\hline\n';
 }
 
 function latex_line(data, isHeader, rowLines){
-	var tmp = "";
-	//first column is not preceeded by a &:
-	if (isHeader){
-		tmp += (" \\textbf{" + data[0] + "}");
-	}
-	else{
-		tmp += data[0]
-	}
-	//subsequent columns are:
-	for (var i=1; i<data.length; i++){
-		if (isHeader){
-			tmp += (" & \\textbf{" + data[i] + "}");
-		}
-		else{
-			tmp += (" & " + data[i]);
-		}
-	}
-	tmp += "\\\\\n";
-	if (isHeader || rowLines){
-		tmp += "\\hline\n";
-	}
-	return tmp;
+	return (isHeader ?
+			'\\textbf{' + data.join('} & \\textbf{') + '}' :
+			data.join(' & ')
+		) +
+		'\\\\\n' +
+		((isHeader || rowLines) ? '\\hline\n' : '');
 }
 
-function md_header_sep(line_lengths){
-	var tmp = "| ";
-	for (var i = 0; i<line_lengths.length; i++){
-		for (var j=0; j<line_lengths[i]; j++){
-			tmp += "-";
-		}
-		tmp += " | ";
-	}
-	tmp += "\n";
-	return tmp;
+function md_separator(lengths){
+	return '| ' + $(lengths).map((i, length) => '-'.repeat(length)).get().join(' | ') + ' |\n';
 }
 
 function show_hidden_items(){
-	var items = document.getElementsByClassName('result_wrapper');
-	for (var i=0; i<items.length; i++){
-		items[i].style.display="inline-block";
-	}
+	$('.result_wrapper').css('display', 'inline-block');
 }
 
 function toggle_options(){
-	var options_panel = document.getElementById("options");
-	var options_link = document.getElementById("toggle_options");
-	if (options_panel.style.display == "none"){
-		options_panel.style.display = "inline-block";
-		options_link.innerHTML = "Hide Options";
+	let panel = $('#options');
+	let button = $('#toggle_options');
+
+	if (panel.css('display') == 'none'){
+		panel.css('display', 'inline-block');
+		button.innerText('Hide Options');
 	}
 	else{
-		options_panel.style.display = "none";
-		options_link.innerHTML = "Show Options";
+		panel.css('display', 'none');
+		button.innerText('Show Options');
 	}
 }
 
 function reset(){
-	var items = document.getElementsByClassName("result_wrapper");
-	for (var i=0; i<items.length; i++){
-		items[i].style.display="none";
-	}
-	document.getElementById("csv_input").value = "\n\n";
+	$('.result_wrapper').css('display', 'none');
+	$('#csv_input').val('');
 }
-
-
-
-
-
-
-
-
-
