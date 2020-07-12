@@ -35,7 +35,7 @@
 }
 
 .body{
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .footer{
@@ -47,3 +47,14 @@
     max-width:350px;
     margin: 0 auto;
 }
+
+.page-card{
+    margin: 1em;
+    /* width: 250px; */
+    max-width: 400px;
+    text-align: center;
+}
+
+/* .page-card .card-img-top{
+    width: 250px;
+} */

@@ -3,4 +3,23 @@ layout: default
 title: Projects
 ---
 
-This is the projects page!
+
+<div class="container">
+    <div class="row">
+        {% for post in site.posts %}
+            {% if post.appears-on == "projects" %}
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mx-auto my-3">
+                    <a href="{{post.url}}" class="noblue">
+                        <div class="card h-100">
+                            <img src="{{post.imgurl}}" class="card-img-top">
+                            <div class="card-body">
+                                <h4 class="card-title">{{post.title}}</h4>
+                                <p class="card-text">{{post.summary}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
