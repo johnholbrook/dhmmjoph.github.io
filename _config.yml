@@ -7,4 +7,4 @@ defaults:
       layout: "default"
 
 
-permalink: none
+permalink: /:title:output_ext
