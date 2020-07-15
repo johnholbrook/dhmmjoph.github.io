@@ -1,20 +1,19 @@
 ---
 layout: default
 title: CSV Converter
-category: misc
-subhead: Convert CSV data to HTML, LaTeX, and ASCII Tables
 summary: Convert CSV data to HTML, LaTeX, and ASCII Tables
-imgurl: /img/csv.png 
+imgurl: /img/csv.png
+appears-on: projects
 ---
 		<link rel="stylesheet" type="text/css" href="{{site.url}}/csv/csv.css">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="{{site.url}}/csv/jquery-csv.js"></script>
-		<h1>CSV to ASCII Table</h1>
+		<!-- <h1>CSV to ASCII Table</h1> -->
 		<h2>CSV Input:</h2>
 		<br/>
-		<textarea rows="20" cols="100" id="csv_input"></textarea>
+		<textarea rows="10" cols="50" id="csv_input"></textarea>
 		<br/>
-		<button id="toggle_options" onclick="toggle_options()">Show Options</button>
+		<button class="btn btn-primary" id="toggle_options" onclick="toggle_options()">Show Options</button>
 		<br/>
 		<div id="options" >
 			<input type="checkbox" id="use_headers" checked>Treat first line as header</input>
@@ -23,14 +22,14 @@ imgurl: /img/csv.png
 			<br/>
 		</div>
 		<br/>
-		<button id="convert_button" onclick="convert()">Convert</button>
-		<button id="reset_button" onclick="reset()">Reset</button>
+		<button class="btn btn-primary" id="convert_button" onclick="convert()">Convert</button>
+		<button class="btn btn-primary" id="reset_button" onclick="reset()">Reset</button>
 
 		<br/>
 
-		<div class="result_wrapper">
-			<h2>HTML Table</h2>
-			<span><textarea rows="20" cols="100" id="html_source_box" wrap="off"></textarea></span>
+		<div class="result_wrapper card w-100">
+			<h2 class="card-title">HTML Table</h2>
+			<span><textarea rows="20" cols="50" id="html_source_box" wrap="off"></textarea></span>
 			<br/><br/>
 			<span id="html_results_box">
 			</span>
@@ -38,20 +37,20 @@ imgurl: /img/csv.png
 
 		<br/>
 
-		<div class="result_wrapper">
-			<h2>LaTeX Table</h2>
-			<textarea rows="20" cols="100" id="latex_source_box" wrap="off"></textarea>
+		<div class="result_wrapper card w-100">
+			<h2 class="card-title">LaTeX Table</h2>
+			<textarea rows="20" cols="50" id="latex_source_box" wrap="off"></textarea>
 		</div>
 	
 		<br/>
 
-		<div class="result_wrapper">
-			<h2>ASCII Table</h2>
-			<textarea rows="20" cols="100" id="ascii_results_box" wrap="off"></textarea>
+		<div class="result_wrapper card w-100">
+			<h2 class="card-title">ASCII Table</h2>
+			<textarea rows="20" cols="50" id="ascii_results_box" wrap="off"></textarea>
 		</div>
 
-		<div class="result_wrapper">
-			<h2>Markdown Table</h2>
+		<div class="result_wrapper card w-100">
+			<h2 class="card-title">Markdown Table</h2>
 			<small>
 				NOTE: This table syntax may not be supported in all flavors of Markdown.
 				Some flavors may only support this syntax when the "Treat first line as header"
@@ -59,7 +58,8 @@ imgurl: /img/csv.png
 				<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables">
 				here</a>.
 			</small>
-			<textarea rows="20" cols="100" id="md_results_box" wrap="off"></textarea>
+			<br>
+			<textarea rows="20" cols="50" id="md_results_box" wrap="off"></textarea>
 		</div>
 
 

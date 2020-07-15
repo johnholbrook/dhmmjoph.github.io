@@ -1,0 +1,324 @@
+---
+layout: default
+title: Grape Mass Analysis
+summary: How many pounds of grapes should you buy to end up with n individual grapes?
+imgurl: /img/grapes.jpg
+appears-on: articles
+---
+
+<h2>What is this?</h2>
+
+<p>
+    In this article, I attempt to determine an average value for the mass of a single grape, and to develop a (relatively) simple formula 
+    for approximating how many pounds of grapes to buy given a desired number of individual grapes.
+</p>
+
+<h2>Why do I care about this?</h2>
+
+<p>
+    For convenience of purchasing, grocery stores sell grapes by mass, with stems and packaging included.  If all you want to do is eat some 
+    grapes, this is fine. However, if you want to consume or distribute a precise number of grapes, an interesting problem arises: What mass 
+    of grapes should you buy (with stem and packaging included) to end up with the desired number of grapes?
+</p>
+
+<h2>Who needs to buy a precise number of grapes?</h2>
+
+<p>
+    Spaniards! In Spain, it is traditional to consume precisely 12 grapes at the stroke of midnight on New Year's Eve, to symbolize good 
+    luck over the coming 12 months. Part of my family hails from Spain, and for many years we have hosted a large New Year's Eve party for 
+    as many as 80-100 family and friends. It has become a tradition at this party for us to prepare and distribute pre-measured packages of 
+    12 grapes for group consumption at midnight.
+</p>
+
+<p>
+    So, each December we are faced with the problem of needing to buy as many as 1000 or more grapes, and figuring out how many n-pound bags 
+    to buy in order to end up with enough individual grapes. Traditionally, we have solved this problem by significantly overbuying, which 
+    usually leaves us with a freezer full of surplus grapes until at least mid-March.
+</p>
+
+<p>
+    I have often longed for a more precise solution to this problem. Although I assume adherents to this tradition must face this problem 
+    frequently, I have been unable to find any relevant discussion of average grape mass online. So, I decided to do my own research.
+</p>
+
+<h2>Procedure</h2>
+<p>
+    In December 2017, <a href="http://ww.acordingley.net">Adam Cordingley</a> and I purchased 3 brands of grapes at our local Kroger. They were:
+    <ul>
+        <li><a href="https://web.archive.org/web/20190123114839/http://www.agricolaandrea.com/">Agricola</a> red grapes (PLU 4023)</li>
+        <li><a href="https://www.frusan.cl/products/grapes/">Frusan</a> green grapes (PLU 4022)</li>
+        <li><a href="http://www.vbzgrapes.com/">Vincent B. Zaninovich &amp; Sons</a> green grapes (also PLU 4022)</li>
+    </ul>
+</p>
+
+<p>
+    For one bag of each brand of grape, we recorded the individual mass of between 30 and 40 grapes using a kitchen scale which was precise 
+    to the nearest gram. We also measured the total mass of all the grapes in the bag, the total number of grapes in the bag, and the combined 
+    mass of the stems and packaging (all 3 brands came in lightweight plastic bags).
+</p>
+
+<h2>Data & Preliminary Analysis</h2>
+<h3>Agricola Red (PLU 4023)</h3>
+<h4>Grape Mass Data</h4>
+We weighed 30 Agricola red grapes:
+
+<table class="table table-striped w-auto mx-auto text-center">
+    <tr>
+        <th>Graps mass(g)</th>
+        <th>Number of grapes</th>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>14</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>4</td>
+    </tr>
+</table>
+
+
+<br/>
+
+<table class="table table-striped w-auto mx-auto text-center">
+    <tr>
+        <td>Total number of grapes in bag</td>
+        <td>155</td>
+    </tr>
+    <tr>
+        <td>Total mass of grapes + stems + bag</td>
+        <td>792 g</td>
+    </tr>
+    <tr>
+        <td>Mass of stems/bag</td>
+        <td>15 g</td>
+    </tr>
+</table>
+
+
+<h4>Discussion</h4>
+<p>
+    The Agricola grapes we weighed had an average mass of 4.63 g, with a standard deviation of 0.85 g. The average mass of all the 
+    grapes in the bag was higher (5.0 g), but this diference is well within the standard deviation. The grapes we weighed came from 
+    several different clusters throughout the bag, so I think it's unlikely the difference was caused by settlement during shipping.
+</p>
+
+<h3>Frusan Green (PLU 4022)</h3>
+<h4>Grape Mass Data</h4>
+<p>We weighed 39 Frusan green grapes:
+
+<table class="table table-striped w-auto mx-auto text-center">
+    <tr>
+        <th>Graps mass(g)</th>
+        <th>Number of grapes</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>11</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>4</td>
+    </tr>
+</table>
+
+
+<br/>
+
+<table class="table table-striped w-auto mx-auto text-center">
+    <tr>
+        <td>Total number of grapes in bag</td>
+        <td>136</td>
+    </tr>
+    <tr>
+        <td>Total mass of grapes + stems + bag</td>
+        <td>1012 g</td>
+    </tr>
+    <tr>
+        <td>Mass of stems/bag</td>
+        <td>20 g</td>
+    </tr>
+</table>
+</p>
+
+<h4>Discussion</h4>
+<p>
+    The Frusan grapes we weighed had an average mass of 7.36 g, with a standard deviation of 1.77 g. The average mass of all the grapes 
+    in the bag was 7.29 grams, which was very close to the average of the grapes we randomly selected.
+</p>
+
+<h3>VBZ &amp; Sons Green (PLU 4022)</h3>
+<h4>Grape Mass Data</h4>
+<p>We weighed 41 VBZ &amp; Sons green grapes:
+
+<table class="table table-striped w-auto mx-auto text-center">
+    <tr>
+        <th>Graps mass(g)</th>
+        <th>Number of grapes</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>13</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>1</td>
+    </tr>
+</table>
+
+
+<br/>
+
+<table class="table table-striped w-auto mx-auto text-center">
+    <tr>
+        <td>Total number of grapes in bag</td>
+        <td>142</td>
+    </tr>
+    <tr>
+        <td>Total mass of grapes + stems + bag</td>
+        <td>952 g</td>
+    </tr>
+    <tr>
+        <td>Mass of stems/bag</td>
+        <td>14 g</td>
+    </tr>
+</table>
+</p>
+
+
+<h4>Discussion</h4>
+<p>
+    The VBZ &amp; Sons grapes we weighed had an average mass of 5.68 g, with a standard deviation of 1.84 grams. The average mass of 
+    all the grapes in the bag was 6.61 grams. Like the Agricola grapes, this was greater than the average mass of the grapes we measured,
+     but well within the standard deviation.
+</p>
+
+<h2>Observations</h2>
+<p>
+    Based on the data collected, I draw the following rudimentary conclusions:
+
+    <ul>
+        <li>
+            Red grapes appear to be lighter than green grapes on average. However, there was also significant variation in average mass 
+            between the two brands of (nominally identical) green grapes. So, maybe we just bought an unusually light bag of red grapes.
+        </li>
+        <li>
+            In bags of grapes this large (700g - 1kg, which seems to be a common size in American grocery stores), the mass of the stems 
+            and lightweight plastic packaging is probably negligable.
+        </li>
+        <li>
+            Thus, it's probably OK to assume a linear relationship between the desired number of grapes and the mass of grapes to purchase.
+        </li>
+        <li>
+            However, to account for potential variation in average grape mass from brand to brand and batch to batch, it's probably a good 
+            idea to add some safety margin (say, 10%) to the calculated mass of grapes to purchase.
+        </li>
+    </ul>
+</p>
+
+<h2>Proposed Technique</h2>
+<p>
+    This is my best guess at calculating what mass of grapes to purchase to recieve a desired number of grapes. When doing this in
+    real life, I would probably buy 10-15% more grapes by mass than I calculated I needed, unless I really didn't want any extra grapes 
+    and was willing to make an additional trip to the grocery store in case I ended up with too few. I could add more 
+    significant figures to these numbers, but given the apparent variation in grape mass that would probably be unwise.
+</p>
+
+<p>
+    For red grapes (PLU 4023), I would assume an average mass of 5 grams, or roughly 1 pound for every 90 desired grapes.
+</p>
+
+<p>
+    For green grapes (PLU 4022), I would assume an average mass of  6-7 grams, or roughly 1 pound for every 65-75 desired grapes.
+</p>
+
+<h2>Future Improvements: More Data Needed!</h2>
+<p>
+    My hunch is that grapes vary significantly in mass depending on various factors, including manufacturer, growing region, geographical & 
+    annual weather patterns, fertilizers used, etc.
+</p>
+
+<p>
+    To further refine my model, it will be necessary to weigh many more grapes, from many different manufacturers and batches. Ideally, 
+    I would also have data available from grapes purchased in many different locations.
+</p>
+
+<p>
+    I will continue to measure grapes each year. If you are interested in this project and want to send me data you've collected yourself,
+     feel free to do so via email to <a href="mailto:grapes@johnholbrook.us">grapes@johnholbrook.us</a>. Please include the following information:
+    <ul>
+        <li>Grape Manufacturer, type, and (ideally) PLU</li>
+        <li>Location you purchased the grapes (store name and city is fine)</li>
+        <li>Total number of grapes you weighed, and the mass distribution (or your raw data for each grape)</li>
+        <li>Total number of grapes in the container</li>
+        <li>Type of container in which grapes were packaged</li>
+        <li>Total mass of the grapes, stems, and container (just as it appeared in the store)</li>
+        <li>Total mass of the container and any stems (weighing these together or separately is fine).</li>
+        <li>Any other information/data you deem relevant.</li>
+    </ul>
+
+</p>

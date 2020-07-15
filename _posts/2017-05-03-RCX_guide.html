@@ -1,15 +1,10 @@
 ---
 layout: LEGO
 title: The RCX, 19 years later
-category: edu
-subhead: A guide to using LEGO's first Mindstorms programmable brick in 2017
 summary: A guide to using the RCX in 2017
 imgurl: /img/rcx_guide/cover.png
+appears-on: lego
 ---
-
-<p>
-	<em>This article is also available as a <a href="{{site.url}}/LEGO/rcx_guide.pdf">PDF Document</a> for easy printing and physical distribution!</em>
-</p>
 
 <p>
 	Despite being the oldest of the three Mindstorms programmable bricks, the RCX remains my favorite.
@@ -52,32 +47,85 @@ imgurl: /img/rcx_guide/cover.png
 <h3 id="rcx_brick">RCX Brick</h3>
 <p>
 	The RCX brick comes in 3 hardware revisions:
-	<ul>
-		<li>
-			1.0 - The original. The only revision to include a power input jack, so that in addition
-			to 6 AA batteries, it can also be powered by a 9-12V <b>AC</b> power supply. (Yes, you read that
-			right: It's an AC input).
-		</li>
-		<li>
-			1.5 (also called 1.1) - Included with the Robotics Invention System (RIS) 1.5 set.
-			Identical to the 1.0 brick except that the power input jack has been removed. Officially,
-			the 1.5 brick is also called an 1.0 brick, but with a serial number 
-			<a href="https://bricks.stackexchange.com/questions/1105/why-does-my-rcx-programmable-brick-have-no-power-socket">greater than approximately 300000</a>.
-		</li>
-		<li>
-			2.0 - Identical to the 1.5 brick except that the IR interface operates at
-			<a href="https://bricks.stackexchange.com/questions/8049/lego-rcx-1-0-brick-relationship-to-robotics-invention-system-ris-rcx-firmwar">
-			twice the frequency</a> (76 kHz instead of 38 kHz). This has the effect of slightly reduced range,
-			but enables the 2.0 brick to talk to <a href="https://en.wikipedia.org/wiki/Lego_Spybotics">
-			Spybotics products</a>.
-		</li>
-	</ul>
+
+	<p>
+		<b>1.0</b> - The original. The only revision to include a power input jack, so that in addition
+		to 6 AA batteries, it can also be powered by a 9-12V <b>AC</b> power supply. (Yes, you read that
+		right: It's an AC input).
+	</p>		
+
+	<p>
+		<b>1.5 (also called 1.1)</b> - Included with the Robotics Invention System (RIS) 1.5 set.
+		Identical to the 1.0 brick except that the power input jack has been removed. Officially,
+		the 1.5 brick is also called an 1.0 brick, <del>but with a serial number 
+		<a href="https://bricks.stackexchange.com/questions/1105/why-does-my-rcx-programmable-brick-have-no-power-socket">greater than approximately 300000</a>.</del>
+	</p>
+
+	<p>
+		<b>2.0</b> - Identical to the 1.5 brick except that the IR interface operates at
+		<a href="https://bricks.stackexchange.com/questions/8049/lego-rcx-1-0-brick-relationship-to-robotics-invention-system-ris-rcx-firmwar">
+		twice the frequency</a> (76 kHz instead of 38 kHz). This has the effect of slightly reduced range,
+		but enables the 2.0 brick to talk to <a href="https://en.wikipedia.org/wiki/Lego_Spybotics">
+		Spybotics products</a>.
+	</p>
+
+	<p>
+		<em>Update 11 July 2020:</em> The "serial number greater than 300000" thing seems to not be quite true - and in fact any reference to it seems to have been removed
+		from the stackexchange thread linked above. <a href="https://legoeducacional-umcontributo.blogspot.com">Leonardo Verde</a> has been doing some research on
+		RCX serial numbers, and is collecting data about the type and serial number of many RCX bricks in <a href="https://legoeducacional-umcontributo.blogspot.com/2020/05/rcx-numeracao.html">
+		this form</a>. He's also shared the results with me; here's a snapshot at the time of writing:
+		<table class="table table-striped w-auto mx-auto text-center">
+			<tr class="border-bottom border-dark">
+				<th>Total Responses</th>
+				<td>126</td>
+			</tr>
+			<tr>
+				<th>Number of 1.0 bricks</th>
+				<td>66</td>
+			</tr>
+			<tr>
+				<th>Highest 1.0 serial number</th>
+				<td>990439</td>
+			</tr>
+			<tr class="border-bottom border-dark">
+				<th>Lowest 1.0 serial number</th>
+				<td>284</td>
+			</tr>
+			<tr>
+				<th>Number of 1.5 bricks</th>
+				<td>21</td>
+			</tr>
+			<tr>
+				<th>Highest 1.5 serial number</th>
+				<td>585813</td>
+			</tr>
+			<tr class="border-bottom border-dark">
+				<th>Lowest 1.5 serial number</th>
+				<td>356161</td>
+			</tr>
+			<tr>
+				<th>Number of 2.0 bricks</th>
+				<td>39</td>
+			</tr>
+			<tr>
+				<th>Highest 2.0 serial number</th>
+				<td>996764</td>
+			</tr>
+			<tr>
+				<th>Lowest 2.0 serial number</th>
+				<td>514846</td>
+			</tr>
+		</table>
+
+		So it looks like 1.5 bricks do reliably have a serial number over 300000, but 1.0 bricks can have such serial numbers too.
+	</p>
+
 	Aside from those diffrences, all hardware revisions are functionally identical, and all firmware versions
 	are compatible with all hardware revisions. I tend to favor the 1.0 brick due to the inclusion of the
 	power input, and in any case the 1.0 seems to be the most commonly-available brick online.
-	<figure>
-		<img class="embed_image" src="/img/rcx_guide/rcx.png">
-		<figcaption>RCX 1.0 brick, from all sides. The 1.5 brick is identical except that there's no power 
+	<figure class="figure w-100">
+		<img class="figure-img img-fluid w-80 mx-auto" src="/img/rcx_guide/rcx.png">
+		<figcaption class="figure-caption text-center">RCX 1.0 brick, from all sides. The 1.5 brick is identical except that there's no power 
 			jack at the bottom.The 2.0 brick is identical except that there's no power jack at
 			the bottom and it says "RCX 2.0" instead of "RCX 1.0".</figcaption>
 	</figure>
@@ -90,9 +138,9 @@ imgurl: /img/rcx_guide/cover.png
 	other connects over USB, and can get enough power from that so as to not require a battery. The USB model
 	is more convenient to use (due to the lack of additional battery), and seems to be more readily available
 	online.
-	<figure>
-		<img src="/img/rcx_guide/ir_towers.png">
-		<figcaption>Two IR towers: USB on the left; Serial on the right.
+	<figure class="figure w-100">
+		<img class="figure-img img-fluid w-80 mx-auto" src="/img/rcx_guide/ir_towers.png">
+		<figcaption class="figure-caption text-center">Two IR towers: USB on the left; Serial on the right.
 			<br/>
 			📷: <a href="http://lego.wikia.com/">Brickipedia</a>
 			(<a href="http://lego.wikia.com/wiki/File:Infrared.jpg">USB</a>/<a href="http://lego.wikia.com/wiki/File:9713-1.jpg">Serial</a>)
@@ -103,7 +151,7 @@ imgurl: /img/rcx_guide/cover.png
 <em><small>Thanks to Reddit user MindS1 for 
 	<a href="https://www.reddit.com/r/mindstorms/comments/6h19wn/thought_yall_might_like_to_read_an_article_i/diwdgkg/">
 		correcting a previous error</a> in this section.</small></em>
-<p>
+<!-- <p>
 	For many years, the common wisdom was that the USB infrared tower was not supported on 64-bit versions of 
 	windows, the reason being that LEGO never wrote a 64-bit driver for the USB tower. Recently, however, a
 	64-bit compatible USB tower driver <a href="http://www.legoengineering.com/rcx-usb-tower-support/">
@@ -113,14 +161,26 @@ imgurl: /img/rcx_guide/cover.png
 	ROBOLAB software (more info on RCX languages <a href="#program">below</a>); thus, the USB IR tower can
 	only be used with ROBOLAB on 64-bit versions of Windows. The serial IR tower can be used on 64-bit versions
 	of windows in conjunction with a USB-to-DE-9 adapter.
+</p> -->
+<p>
+	A general-puspose Windows driver for the USB tower is only available for 32-bit Windows.
+	For 64-bit Windows, there is <a href="http://www.legoengineering.com/rcx-usb-tower-support/">
+	this driver available</a>, but it's only compatible with <a href="http://www.legoengineering.com/robolab-for-labview/">
+	"ROBOLAB for LabView"</a>. Note that "ROBOLAB for LabView" requires an existing installation of LabView, and is <em>not</em>
+	 the same thing as "ROBOLAB".
 </p>
+<p>
+	If you want to program an RCX brick from 64-bit Windows using any other software (ROBOLAB, ROBOTC, NQC, etc.), you can do so
+	with a serial IR tower (and a USB-to-DB-9 adapter cable, if needed).
+</p>
+
 <h3 id="motors">Motors</h3>
 <p>
 	RCX-compatible motors come in 2 shapes, which I'll call "rectangular" and "cubic". 
 	The cubic motors appear in more sets, and are in my opinion easier to work with.
-	<figure>
-		<img class="embed_image" src="/img/rcx_guide/motors.png">
-		<figcaption>Left: rectangular motor
+	<figure class="figure w-100">
+		<img class="figure-img img-fluid w-80 mx-auto" src="/img/rcx_guide/motors.png">
+		<figcaption class="figure-caption text-center">Left: rectangular motor
 			(<a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=2838c01">2838c01</a>). 
 			Right: cubic motor (<a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=71427c01">71427c01
 			</a>/<a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=43362c01">43362c01</a>).
@@ -139,9 +199,9 @@ imgurl: /img/rcx_guide/cover.png
 	of third-party sensors are available, and LEGO&reg; also produced a "DCP Sensor Adapter" which converted the
 	RCX connector to a 7-Pin DIN socket compatible with  LogIT Microsense scientific sensors made by
 	<a href="http://ccgi.dcpmicro.plus.com/DCPMICRO/lego.htm">DCP Microdevelopments</a>.
-	<figure>
-		<img class="embed_image" src="/img/rcx_guide/first_party_sensors.png">
-		<figcaption>Clockwise from bottom left: Light sensor, rotation sensor, temperature sensor,
+	<figure class="figure w-100">
+		<img class="figure-img img-fluid w-80 mx-auto" src="/img/rcx_guide/first_party_sensors.png">
+		<figcaption class="figure-caption text-center">Clockwise from bottom left: Light sensor, rotation sensor, temperature sensor,
 		touch sensor</figcaption>
 	</figure>
 </p>
@@ -151,9 +211,9 @@ imgurl: /img/rcx_guide/cover.png
 	brick with electrical contacts on the top and bottom. Wires are available in lengths of 15, 17, 20, 21, 26, 36,
 	46, 69, 162, and 378 studs <a href="http://studs.sariel.pl/">(1 stud = 8 mm = 0.315 in)</a>. Every first-party
 	sensor except for the touch sensor comes with a short wire permenantly affixed to the sensor.
-	<figure>
-		<img class="embed_image" src="/img/rcx_guide/connectors.png">
-		<figcaption>Wire connector for RCX motors and sensors, seen from the top (at left) and bottom
+	<figure class="figure w-100">
+		<img class="figure-img img-fluid w-80 mx-auto" src="/img/rcx_guide/connectors.png">
+		<figcaption class="figure-caption text-center">Wire connector for RCX motors and sensors, seen from the top (at left) and bottom
 			(at right)</figcaption>
 	</figure>
 </p>
@@ -162,9 +222,9 @@ imgurl: /img/rcx_guide/cover.png
 	There also exists <a href="https://www.bricklink.com/v2/catalog/catalogitem.page?S=9738-1">an infrared remote
 	control</a>, which can control the motor outputs of the RCX brick in real
 	time without the need for programming.
-	<figure>
-		<img class="embed_image" style="width:10em" src="/img/rcx_guide/remote.jpg">
-		<figcaption>RCX remote.
+	<figure class="figure w-100">
+		<img class="figure-img img-fluid w-80 mx-auto" style="width:10em" src="/img/rcx_guide/remote.jpg">
+		<figcaption class="figure-caption text-center">RCX remote.
 			<br/>
 			📷: <a href="http://lego.wikia.com/">Brickipedia</a>
 			(<a href="http://lego.wikia.com/wiki/File:9738-rc2b.jpg">link</a>)
@@ -186,10 +246,10 @@ imgurl: /img/rcx_guide/cover.png
 </p>
 <p>
 	The following sets contain RCX bricks:
-	<figure>
-	<table>
+	<figure class="figure w-100">
+	<table class="table table-striped mx-auto text-center">
 		<tr>
-			<th>Set #</th>
+			<th>Set</th>
 			<th>Set Name</th>
 			<th>RCX Brick Version</th>
 			<th>Motors Included</th>
@@ -260,7 +320,7 @@ imgurl: /img/rcx_guide/cover.png
 			<td>USB</td>
 		</tr>
 	</table>
-	<figcaption>
+	<figcaption class="figure-caption text-center">
 		*Sets 9785/9786 and 9793/9794 are identical to each other except for the type of the IR tower. <br/>
 		&dagger;LEGO changed the production method of the cubic motors with little fanfare, and in the middle
 		of production of various sets. Thus, it's hard to tell whether a set you buy will contain the older or
@@ -278,7 +338,7 @@ imgurl: /img/rcx_guide/cover.png
 	electronic components you want. In my experience, <a href="https://www.bricklink.com">Bricklink</a>
 	is the best place to buy individual Mindstorms components (or individual LEGO&reg; components of any kind).
 	Here are links to all the parts I've mentioned:
-	<table>
+	<table class="table table-striped w-auto mx-auto text-center">
 		<tr>
 			<th>Name</th>
 			<th>Part number</th>
@@ -619,7 +679,7 @@ imgurl: /img/rcx_guide/cover.png
 
 <h3 id="64bit_q">I read on [Website] that I can't use the USB IR tower with 64-bit Windows! Is that true?</h3>
 <p>
-	<b>Not anymore</b>. <a href="#ir_tower_x64">See above</a> for more information.
+	For most applications, yes. <a href="#ir_tower_x64">See above</a> for more information.
 </p>
 
 <h3 id="tv_remote">Can I send data to the RCX from a
