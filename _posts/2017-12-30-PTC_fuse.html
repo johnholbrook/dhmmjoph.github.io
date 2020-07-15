@@ -1,8 +1,6 @@
 ---
 layout: default
 title: PTC Fuses in VEX Robots&#58; A Guide
-category: edu
-subhead: Or, how to avoid your motors "stalling" in the middle of a match
 summary: An overview of the use of PTC fuses in VEX EDR robots
 imgurl: /img/vex_logo.png
 appears-on: articles
@@ -36,10 +34,12 @@ appears-on: articles
 	accompanying table shows which PTC fuses protect each motor.
 </p>
 
-<figure>
-<img class="embed_image" src="{{site.url}}/img/cortex_wiring.png">
+<figure class="figure">
+	<img class="figure-img img-fluid w-50 mx-auto" src="{{site.url}}/img/cortex_wiring.png">
+</figure>
 
-<table>
+
+<table class="table table-striped w-auto mx-auto text-center">
 	<tr>
 		<th>Motor</th>
 		<th>Fuses</th>
@@ -65,7 +65,7 @@ appears-on: articles
 		<td>Motor 5, Cortex 6-10</td>
 	</tr>
 </table>
-</figure>
+
 
 <h2>Why is this important?</h2>
 <p>
@@ -79,11 +79,14 @@ appears-on: articles
 </p>
 
 <h2>How should this affect my robot design?</h2>
+<p>
 When designing a robot, you should think about which motors will be subject to heavy loads at what times, and plan
 how to connect motors to the Cortex accordingly, so that heavy loads are spread across multiple Cortex/Expander
 PTC fuses.
+</p>
 
 <h2>What if I'm tripping a PTC fuse in a motor?</h2>
+<p>
 If your robot consistently trips a motor PTC fuse, you should first examine the mechanism it’s powering. Minimizing
 friction, checking for slightly bent shafts, adding passive assistance (i.e., via rubber bands), or even adding
 more motors are all actions that could alleviate such problems. However, at busy tournaments, sometimes there isn’t
@@ -93,6 +96,7 @@ more motors are all actions that could alleviate such problems. However, at busy
  personal preference is for the freeze spray. A downside of using freeze spray, in my experience, is that some team
  members like to spray themselves and each other with it, which could be dangerous, and is certainly a waste of 
  valuable freeze spray.
+ </p>
 
 
 
