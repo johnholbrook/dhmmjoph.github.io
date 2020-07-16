@@ -62,3 +62,7 @@
 tr.border-bottom{
     border-bottom: 2px solid !important;
 }
+
+.v-spacer{
+    height: 10em;
+}
