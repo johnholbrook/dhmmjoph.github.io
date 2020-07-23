@@ -1,0 +1,87 @@
+---
+layout: default
+title: FLLuid
+summary: A flexible, easy-to-use audience dsiplay for FIRST&reg; LEGO&reg League events run using FLLtournament.com
+imgurl: /img/flluid/overlay.png
+appears-on: projects
+---
+
+<p>
+    I help run a lot of robotics events, mostly <a href="https://www.firstlegoleague.org">FLL</a>, 
+    <a href="http://www.vexrobotics.com/vexedr/competition/">VRC</a>, and
+    <a href="https://www.vexrobotics.com/vexiq/competition/vex-iq-challenge-overview">VIQC</a>, and as a result I end up thinking a lot about
+    the tenichical and logistical aspects of running these events. One of the things I like about VRC and VIQC is that the scoring and timing software,
+    <a href="https://vextm.dwabtech.com">VEX Tournament Manager</a>, provides a bunch of cool audience-facing displays that effectively convey
+    scoring and scheduling information while looking slick and professional.
+</p>
+
+<p>
+    FLL events don't really have an equivalent to VEX Tournament Manager. There are various pieces of software designed to automate some parts of
+    the scoring and display process, but they don't all do everything, and none are the officially-endorsed first-party solution that VEX TM is.
+</p>
+
+<p>
+    For our FLL events in West Virginia, we use <a href="https://flltournament.com">FLLTournament.com</a>. It's great for inputting match scores,
+    automatically ranking teams, digitizing judging rubrics, and recruiting and managing volunteers. But, it's single audience-facing display is...
+    not very pretty, and it doesn't have a built-in match timer, a schedule display, or many of the other audience-facing dsiplays I like in VEX TM.
+</p>
+
+<p>
+    What I really wanted was some software that pulled match score information from FLLTournament.com and displayed it in a more full-featured
+    "audience display" like that provided by VEX TM. This software didn't seem to exist, so I wrote it.
+</p>
+
+<figure class="figure">
+    <div class="row mb-4">
+        <div class="col">
+            <img src="/img/flluid/overlay.png" class="img-fluid border border-dark">
+        </div>
+        <div class="col">
+            <img src="/img/flluid/schedule.png" class="img-fluid border border-dark">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src="/img/flluid/scores.png" class="img-fluid border border-dark">
+        </div>
+        <div class="col">
+            <img src="/img/flluid/upnext.png" class="img-fluid border border-dark">
+        </div>
+    </div>
+</figure>
+
+<p>
+    <b>FLLuid</b> (<b>FLL U</b>seful <b>I</b>nformation <b>D</b>isplay) is an easy-to-use, customizable audience display package for FLL events run using FLLTournament.com. Features include:
+    <ul>
+        <li>Runs on Windows, macOS, and Linux</li>
+        <li>Match timer suitable for use with or without streaming video</li>
+        <li>Match scores display</li>
+        <li>Match schedule display</li>
+        <li>Dynamically-updating, smooth-scrolling tables</li>
+        <li>Show top scores from other qualifying events</li>
+        <li>Show soponsor logos on their own display, or in between match scores or schedule</li>
+        <li>Keep the audience up-to-date with custom messages</li>
+        <li>Customize the appearance and behavior of displays in various ways</li>
+    </ul>
+</p>
+
+<p>
+    FLLuid presents two windows: the "display window", which is shown full-screen to the audience; and the "controller window", which
+    contains the interface for controlling what's shown in the display window.
+
+    <figure class="figure">
+        <img src="/img/flluid/controller.png" class="figure-img img-fluid w-90 mx-auto">
+        <figcaption class="figure-caption text-center">FLLuid controller window</figcaption>
+    </figure>
+</p>
+
+<p>
+    I started working on FLLuid in November 2019, and have been working on it on and off since then. As of July 2020, I've implemented most
+    the features I want in an initial release, and I hope to have v1.0 out in time for the 2020-2021 FLL season in WV, whenever that happens.
+</p>
+
+<p>
+    For more info or to download FLLuid, check out the project on GitHub:
+
+    <div class="text-center"><a href="https://github.com/johnholbrook/FLLuid" class="btn btn-primary"><h3>FLLuid on GitHub</h3></a></div>
+</p>

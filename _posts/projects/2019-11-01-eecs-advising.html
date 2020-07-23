@@ -1,0 +1,56 @@
+---
+layout: default
+title: EECS Advising Tool
+summary: Intelligent class advising for Electrical Engineering & Comptuer Science students.
+imgurl: /img/eecs-at/summary.png
+appears-on: projects
+---
+
+<p>
+    This was a senior capstone project, which I completed as part of a team of 4 senior CS students. The brief was to write a cross-platform
+    desktop app to improve the quality of faculty advising and course suggestion by analyzing a student's current progress, courses available
+    next semester, and other factors.
+</p>
+
+<figure class="figure w-100">
+    <img class="figure-img img-fluid w-90 mx-auto" 
+         src="/img/eecs-at/summary.png"
+         onmouseover="this.src='/img/eecs-at/summary-dark.png'"
+         onmouseout="this.src='/img/eecs-at/summary.png'">
+    <figcaption class="figure-caption text-center">Summary view (mouse over for dark mode)</figcaption>
+</figure>
+
+<p>
+    The app took data in from PDF copies of student degree audit reports and stored it in a local database. This was kind of a pain to implement,
+    but pretty much the only way we could get ahold of this data. Information about courses and course offerings is scraped from the university course
+    offerings webpage and cached locally as needed.
+</p>
+
+<p>
+    The app was written using Electron, which we chose because the brief required us to write a cross-platform desktop app and because several of us had some
+    pre-existing Javascript/web development experience.
+</p>
+
+<p>
+    I mostly worked on the summary view (shown above), the primary aim of which was to display requirements that the student had not yet completed,
+    and suggest upcoming courses that could be taken to further those requirements. I also wrote most of the code to scrape and cache upcomign course offerings
+    from the university website.
+</p>
+
+<p>
+    Another cool feature of the app (not written by me) was the "class graph" view, which showed a graph of all the required and optional courses for a
+    degree program, with each class color-coded based on the student's particular status with respect to that class (passed, failed, prerequisites met,
+    prerequisites not met, etc.)
+</p>
+
+<figure class="figure w-100">
+    <img class="figure-img img-fluid w-90 mx-auto" 
+         src="/img/eecs-at/class-graph.png"
+         onmouseover="this.src='/img/eecs-at/class-graph-dark.png'"
+         onmouseout="this.src='/img/eecs-at/class-graph.png'">
+    <figcaption class="figure-caption text-center">Class graph view (mouse over for dark mode)</figcaption>
+</figure>
+
+<p>
+    Unfortunately, this app was not publically released or open-sourced, so there's nothing for me to link to at the bottom of this page ☹️.
+</p>

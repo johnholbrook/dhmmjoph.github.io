@@ -1,0 +1,39 @@
+---
+layout: default
+title: python-vexdb
+summary: A thin python wrapper for the VexDB API.
+imgurl: /img/python-vexdb.png
+appears-on: projects
+---
+
+<p>
+    <code>python-vexdb</code> is a Python 3 package that provides a thin wrapper around the <a href="https://vexdb.io/the_data">VexDB.io API</a>.
+    It's goal is to let you get data out of the API and into your scripts as quickly and easily as possible, without having to mess around with
+    URL generation, web requests, or JSON parsing:
+</p>
+
+<pre>
+>>> import vexdb
+>>> vexdb.getTeams(team="SQL")
+[{'number': 'SQL', 'program': 'VEXU', 'team_name': '); DROP TABLE matches;--', 'robot_name': '', 'organisation': 'VEX Robotics Club at Marshall University', 'city': 'Huntington', 'region': 'West Virginia', 'country': 'United States', 'grade': 'College', 'is_registered': 0}]
+>>> >>> vexdb.getEvents(team="SQL")
+[{'sku': 'RE-VEXU-19-9662', 'key': 'RE-VEXU-19-9662', 'program': 'VEXU', 'name': 'West Virginia 2020 VEX U Qualifying Tournament', 'loc_venue': 'Fairmont State University', 'loc_address1': '', 'loc_address2': '', 'loc_city': 'Fairmont', 'loc_region': 'West Virginia', 'loc_postcode': '26554', 'loc_country': 'United States', 'season': 'Tower Takeover', 'start': '2020-03-06T00:00:00+00:00', 'end': '2020-03-06T23:59:59+00:00', 'divisions': ['Default Division']}]
+>>> vexdb.getMatches(team="SQL")
+[{'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 2, 'instance': 1, 'matchnum': 3, 'field': 'Field 3', 'red1': 'SQL', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'CSM', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 0, 'bluescore': 6, 'scored': 1, 'scheduled': '2020-03-06T18:12:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 2, 'instance': 1, 'matchnum': 7, 'field': 'Field 1', 'red1': 'NOVA2', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'SQL', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 17, 'bluescore': 28, 'scored': 1, 'scheduled': '2020-03-06T18:36:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 2, 'instance': 1, 'matchnum': 14, 'field': 'Field 2', 'red1': 'ILLIN1', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'SQL', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 38, 'bluescore': 20, 'scored': 1, 'scheduled': '2020-03-06T19:18:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 2, 'instance': 1, 'matchnum': 23, 'field': 'Field 2', 'red1': 'SQL', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'BLRS', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 14, 'bluescore': 59, 'scored': 1, 'scheduled': '2020-03-06T20:12:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 2, 'instance': 1, 'matchnum': 31, 'field': 'Field 1', 'red1': 'SQL', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'FR7', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 28, 'bluescore': 7, 'scored': 1, 'scheduled': '2020-03-06T21:00:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 2, 'instance': 1, 'matchnum': 34, 'field': 'Field 1', 'red1': 'RIT1', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'SQL', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 22, 'bluescore': 29, 'scored': 1, 'scheduled': '2020-03-06T21:18:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 2, 'instance': 1, 'matchnum': 41, 'field': 'Field 2', 'red1': 'SQL', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'VCAT', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 18, 'bluescore': 15, 'scored': 1, 'scheduled': '2020-03-06T23:00:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 2, 'instance': 1, 'matchnum': 47, 'field': 'Field 2', 'red1': 'SQL', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'UMBC', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 15, 'bluescore': 28, 'scored': 1, 'scheduled': '2020-03-06T23:30:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 6, 'instance': 8, 'matchnum': 1, 'field': '', 'red1': 'SQL', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'VCAT', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 19, 'bluescore': 16, 'scored': 1, 'scheduled': '1970-01-01T00:00:00+00:00'}, {'sku': 'RE-VEXU-19-9662', 'division': 'Default Division', 'round': 3, 'instance': 4, 'matchnum': 1, 'field': '', 'red1': 'BLRS', 'red2': '', 'red3': '', 'redsit': '', 'blue1': 'SQL', 'blue2': '', 'blue3': '', 'bluesit': '', 'redscore': 43, 'bluescore': 16, 'scored': 1, 'scheduled': '1970-01-01T00:00:00+00:00'}]
+>>> vexdb.getAwards(team="8768A")
+[{'sku': 'RE-VRC-18-3235', 'name': 'Create Award (VRC/VEXU)', 'team': '8768A', 'qualifies': [], 'order': 1}, {'sku': 'RE-VRC-16-3623', 'name': 'Tournament Champions (VRC/VEXU)', 'team': '8768A', 'qualifies': [], 'order': 1}, {'sku': 'RE-VRC-15-2172', 'name': 'Sportsmanship (VRC/VEXU)', 'team': '8768A', 'qualifies': [], 'order': 4}, {'sku': 'RE-VRC-15-2400', 'name': 'Tournament Champions (VRC/VEXU)', 'team': '8768A', 'qualifies': [], 'order': 1}, {'sku': 'RE-VRC-15-2400', 'name': 'Sportsmanship (VRC/VEXU)', 'team': '8768A', 'qualifies': [], 'order': 4}]
+>>> vexdb.getEvents(region="West Virginia", season="Nothing but Net")
+[{'sku': 'RE-VRC-16-3693', 'key': 'RE-VRC-16-3693', 'program': 'VRC', 'name': 'West Virginia 2015-2016 State Championship: Fairmont State Univeristy', 'loc_venue': 'Fairmont State University Falcon Center', 'loc_address1': '', 'loc_address2': '', 'loc_city': 'Fairmont', 'loc_region': 'West Virginia', 'loc_postcode': '26554', 'loc_country': 'United States', 'season': 'Nothing But Net', 'start': '2016-02-27T00:00:00+00:00', 'end': '2016-02-27T23:59:59+00:00', 'divisions': ['Results']}, {'sku': 'RE-VRC-16-3622', 'key': 'RE-VRC-16-3622', 'program': 'VRC', 'name': 'West Virginia 2016 Qualifier: The Clay Center', 'loc_venue': 'The Clay Center for the Arts and Sciences', 'loc_address1': '', 'loc_address2': '', 'loc_city': 'Charleston', 'loc_region': 'West Virginia', 'loc_postcode': '25301', 'loc_country': 'United States', 'season': 'Nothing But Net', 'start': '2016-02-20T00:00:00+00:00', 'end': '2016-02-20T23:59:59+00:00', 'divisions': ['Results']}, {'sku': 'RE-VRC-16-3623', 'key': 'RE-VRC-16-3623', 'program': 'VRC', 'name': 'West Virginia 2016 Qualifier: NASA IVV Facility', 'loc_venue': 'NASA IVV Facility', 'loc_address1': '', 'loc_address2': '', 'loc_city': 'Fairmont', 'loc_region': 'West Virginia', 'loc_postcode': '26554', 'loc_country': 'United States', 'season': 'Nothing But Net', 'start': '2016-02-06T00:00:00+00:00', 'end': '2016-02-06T23:59:59+00:00', 'divisions': ['Results']}, {'sku': 'RE-VRC-15-4194', 'key': 'RE-VRC-15-4194', 'program': 'VRC', 'name': 'West Virginia Northern Panhandle Regional TSA', 'loc_venue': 'Brooke High School West Virginia Northern Panhandle Regional TSA', 'loc_address1': '', 'loc_address2': '', 'loc_city': 'Wellsburg', 'loc_region': 'West Virginia', 'loc_postcode': '26070', 'loc_country': 'United States', 'season': 'Nothing But Net', 'start': '2015-12-02T00:00:00+00:00', 'end': '2015-12-02T23:59:59+00:00', 'divisions': ['Results']}]
+>>> 
+</pre>
+
+<p>The easiest way to install <code>python-vexdb</code> is using pip:</p>
+<pre>
+pip install vexdb
+</pre>
+
+<p>Or check out more documentation and code examples on PyPI or GitHub:</p>
+<div class="text-center">
+    <a href="https://pypi.org/project/vexdb/" class="btn btn-primary"><h3>python-vexdb on PyPI</h3></a>
+    <a href="https://github.com/johnholbrook/python-vexdb" class="btn btn-primary"><h3>python-vexdb on GitHub</h3></a>
+</div>
