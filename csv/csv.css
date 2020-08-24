@@ -1,4 +1,4 @@
-body{
+:not(.nocenter){
 	text-align: center;
 }
 #convert_button{
