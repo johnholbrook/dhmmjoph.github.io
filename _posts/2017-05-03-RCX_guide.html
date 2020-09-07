@@ -1,10 +1,13 @@
 ---
 layout: LEGO
-title: The RCX, 19 years later
-summary: A guide to using the RCX in 2017
+title: Using the RCX Today
+summary: A guide to using the RCX with modern hardware.
 imgurl: /img/rcx_guide/cover.png
 appears-on: lego
 ---
+<div class="text-center mb-3">
+	<small>Last updated: September 2020</small>
+</div>
 
 <p>
 	Despite being the oldest of the three Mindstorms programmable bricks, the RCX remains my favorite.
@@ -19,7 +22,7 @@ appears-on: lego
 <h2 id="why">Why use an RCX?</h2>
 <p>
 	There are several reasons you might want to use an RCX instead of an NXT or EV3:
-	<ol>
+	<ul>
 		<li>
 			<em>You already have one.</em> Maybe you're a teacher, and your school never bought newer
 			Mindstorms sets. Maybe you found your old RCX equipment in the attic, and want to play with
@@ -38,7 +41,7 @@ appears-on: lego
 			<em>You have a thing for retro technology.</em> Admit it: There's something appealing about the 7-segment
 			LCD display, the infrared communication, and the 8-bit SOC.
 		</li>
-	</ol>
+	</ul>
 </p>
 
 <hr/>
@@ -193,6 +196,10 @@ appears-on: lego
 	the best way to tell the difference between the two hardware revisions. You'll see the older revision described
 	on Bricklink as "Older, heavier weight" and the newer revision described as "Newer, lighter weight".
 </p>
+<p>
+	Lots more technical info about RCX motors (and other LEGO motors) can be found <a href="https://www.philohome.com/motors/motorcomp.htm">here</a>.
+</p>
+
 <h3 id="sensors">Sensors</h3>
 <p>
 	The first-party sensors available for the RCX are Light, Rotation, Touch, and Temperature. In addition, a number
@@ -428,7 +435,7 @@ appears-on: lego
 <h3 id="windows">Windows</h3>
 <p>
 	In my experience, programming an RCX brick is most easily done from a computer running Windows. Several
-	languages are available. On 64-bit versions of Windows, the USB IR tower can only be used by ROBOLAB;
+	languages are available. On 64-bit versions of Windows, the USB IR tower can only be used by "ROBOLAB for LabView";
 	<a href="#ir_tower_x64">see above</a> for more info.
 </p>
 <p>
@@ -684,11 +691,14 @@ appears-on: lego
 
 <h3 id="tv_remote">Can I send data to the RCX from a
 	[TV remote/IR port on an old laptop/IR LED and an Arduino]?</h3>
+
 <p>
-	The short answer is <b>no</b>. The IR towers and remote for the RCX use a proprietary communications
-	protocol, which no one has reverse-engineered and which is incompatible with the protocols used by
-	television remotes or IR transmitters on older laptops. 
+	From a TV remote, probably not, since the RCX doesn't understand data TV remote-control protocols (but you may be interested in the <a href="#remote">first-party remote control</a>, which provides similar functionality).
 </p>
+<p>
+	But if you have direct control over what the IR LED does, yes! James Hagerman reports replicating the functionality of the LEGO IR tower with an Arduino and an IR LED and reciever, and posted a writeup about that <a href="https://gist.github.com/JamesHagerman/24f350ff177bf9bf80a440e7e5e4f525">here</a>.
+</p>
+
 
 <h3 id="sell">I no longer want my RCX bricks/motors/sensors! What should I do with them?</h3>
 <p>
@@ -722,6 +732,9 @@ appears-on: lego
 	of such converters would have to be in conjunction with a third-party firmware such as LeJOS or
 	<a href="http://www.ev3dev.org/">ev3dev</a>.
 </p>
+<p>
+	To drive RCX motors & sensors from an Arduino or RPi, there are a couple of options. First, you could use a <a href="https://www.dexterindustries.com/brickpi/">Dexter Industries BrickPi</a>, which adds some NXT/EV3 ports to a Raspberry Pi, and use the appropriate converter cables to connect the RCX-era devices. Alternately, the RCX motors and sensors are simple enough that it would probably be pretty easy to drive them directly. The motors <a href="https://www.philohome.com/motors/motorcomp.htm">expect 0-9V</a>, and the sensors should <a href="">return an analog voltage from 0-5V</a>.
+</p>
 
 <h3 id="ir_comms">I'm having troube downloading firmware or otherwise transferring large programs or files to the RCX!</h3>
 <p>
@@ -735,16 +748,13 @@ appears-on: lego
 		stackexchange thread</a>.
 </p>
 
+<hr>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<h3>Update Log</h3>
+<p>From time to time, I update this page to correct errors or add new information:</p>
+<ul>
+	<li><b>7 September 2020</b> - Modernize title; rewrite a couple of FAQ answers; add update log.</li>
+	<li><b>11 July 2020</b> - Add serial number table; clarify section on 64-bit Windows USB tower driver. </li>
+	<li><b>19 June 2017</b> - Add reference to 64-bit Windows USB tower driver.</li>
+	<li><b>7 June 2017</b> - Initial Release.</li>
+</ul>
