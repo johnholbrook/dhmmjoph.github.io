@@ -2,7 +2,10 @@
 function convert(){
 	let using_headers = document.getElementById('use_headers').checked;
 	let using_latex_row_lines = document.getElementById('latex-row-lines').checked;
-	let converted_data = $.csv.toArrays($('#csv_input').val());
+	let converted_data = $.csv.toArrays(
+											$('#csv_input').val(),
+											{"separator" : $('#use-tabs').prop('checked') ? "\t" : ","}
+									   );
 	
 	/*ASCII TABLE*/
 	//find the required length of each column
@@ -141,11 +144,11 @@ function toggle_options(){
 
 	if (panel.css('display') == 'none'){
 		panel.css('display', 'inline-block');
-		button.innerText('Hide Options');
+		button.text('Hide Options');
 	}
 	else{
 		panel.css('display', 'none');
-		button.innerText('Show Options');
+		button.text('Show Options');
 	}
 }
 
