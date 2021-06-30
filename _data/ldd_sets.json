@@ -1,0 +1,94 @@
+[
+    {
+        "category": "Mindstorms Sets",
+        "description": "Note that the rechargable battery pack adds an additional unit to the height of the NXT and EV3 bricks. The models of the bricks in LDD show the bricks in their shorter configuration, using AA batteries, so you'll have to keep this in mind when modeling the NXT or EV3 bricks in LDD.",
+        "sets": [
+            {
+                "name": "EV3 Core Set (45544)",
+                "id": "45544",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "EV3 Expansion Set (45560)",
+                "id" : "45560",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "EV3 Core & Expansion (45544 + 45560)",
+                "id" : "45544+45560",
+                "description": "The EV3 Core & Expansion sets, together in a single file.",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "EV3 \"Commercial\"/\"Toy\" Set (31313)",
+                "id" : "31313",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "NXT Base Set (9797)",
+                "id" : "9797",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "NXT Resource Set (9695)",
+                "id" : "9695",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "NXT Base and Resource Sets (9797 + 9695)",
+                "id" : "9797+9695",
+                "description": "The NXT Base & Resource sets, together in a single file.",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "NXT \"Commercial\"/\"Toy\" 1.0 Set (8527)",
+                "id" : "8527",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "NXT \"Commercial\"/\"Toy\" 2.0 Set (8547)",
+                "id" : "8547",
+                "formats": ["lxf", "ldr", "io"]
+            },
+        ]
+    },
+    {
+        "category": "WeDo Sets",
+        "description": "Note that the LXF versions of these sets may not include sensors or hubs.",
+        "sets": [
+            {
+                "name": "WeDo \"1.0\" Construction Set (9580)",
+                "id": "9580",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "WeDo \"1.0\" Resource Set (9585)",
+                "id" : "9585",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "WeDo 2.0 Core Set (45300)",
+                "id" : "45300",
+                "description": "Note: lxf file includes Power Functions M-motor in place of WeDo 2.0 motor.",
+                "formats": ["lxf", "ldr", "io"]
+            }
+        ]
+    },
+    {
+        "category":"Mechanical Sets",
+        "description": "",
+        "sets": [
+            {
+                "name": "Simple Machines Set (9689)",
+                "id": "9689",
+                "formats": ["lxf", "ldr", "io"]
+            },
+            {
+                "name": "Simple and Motorized Mechanisms Base Set (9686)",
+                "id" : "9686",
+                "description": "Also called the \"Simple and Powered Machines Base Set\".",
+                "formats": ["lxf", "ldr", "io"]
+            },
+        ]
+    }
+]

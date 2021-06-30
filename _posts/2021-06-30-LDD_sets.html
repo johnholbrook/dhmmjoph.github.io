@@ -1,0 +1,62 @@
+---
+layout: LEGO
+title: Stud.io/LDraw/LDD Sets
+summary: Educational LEGO&reg; sets catalogued in various CAD formats.
+imgurl: /img/ldd_sets/45544.png
+appears-on: lego
+---
+
+<p>
+    Here are a number of educational LEGO&reg; sets with all the parts laid out in CAD software.
+    This could be useful for a number of purposes, including designing things from parts in each set 
+    without physically having the set, or if you want to model something you've built from a set in 
+    CAD without having to go hunting for parts.
+</p>
+
+<p>
+    Orignially these sets were only available as .lxf files for use in <a href="http://ldd.lego.com/">LEGO&reg; Digital Designer</a>.
+    However, since LDD is deprecated and has become increasingly difficult to run on modern systems, in July 2020
+    I added files for all sets in .ldr (<a href="https://www.ldraw.org">LDraw</a>) and .io
+    (<a href="https://www.bricklink.com/v3/studio/download.page">Studio</a>) formats. Moving forward, 
+    the .ldr and .io versions should be considered the canonical versions for each set, and future
+    sets will only be added with .ldr and .io files.
+</p>
+
+<p>
+    You are free to use these files however you like, create derivitave works, etc. I ask only that
+    if you publish them or a derivitave work, you credit me with a link back to this page.
+</p>
+ 
+<h3>Update Log</h3>
+<ul>
+	<li>
+		<em>12 July 2020</em> - Updated set images, added files in LDraw and Stud.io formats.
+	</li>
+</ul>
+
+<hr>
+
+{% for category in site.data.ldd_sets %}
+    <h3>{{category.category}}</h3>    
+    {% if category.description != "" %}
+        <p>{{category.description}}</p>
+    {% endif %}
+    <div class="row">
+        {% for set in category.sets %}
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mx-auto my-3">
+                <div class="card h-100 d-flex">
+                    <img src="/img/ldd_sets/{{set.id}}.png" class="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">{{set.name}}</h4>
+                        {% if set.description != "" %}
+                            <p class="card-text">{{set.description}}</p>
+                        {% endif %}
+                        {% for format in set.formats %}
+                        <div class="text-center mb-1"><a href="/LEGO/sets/{{set.id}}.{{format}}" class="btn btn-primary text-center">Download {{set.id}}.{{format}}</a></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
