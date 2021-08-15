@@ -93,7 +93,7 @@
         ]
     },
     {
-        "category":"Mechanical Sets",
+        "category":"Other Sets",
         "description": "",
         "sets": [
             {
@@ -111,6 +111,11 @@
                 "name": "Motorized Mechanisms Set (9660)",
                 "id": "9660",
                 "description": "Lose the motor and battery box to get the 'Science & Technology Base Set' (9632). Transparent plastic panels not included.",
+                "formats": ["io", "ldr"]
+            },
+            {
+                "name": "World Robot Olympiad Brick Set",
+                "id": "45811",
                 "formats": ["io", "ldr"]
             }
         ]
