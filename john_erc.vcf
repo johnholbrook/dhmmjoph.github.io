@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Holbrook;John;;;
+FN:John Holbrook
+ADR;INTL;PARCEL;WORK:;;1201 Locust Avenue;Fairmont;WV;26554;USA
+EMAIL;INTERNET:john.holbrook@fairmontstate.edu
+URL:http://www.nasaivverc.org
+URL:http://www.wvrobot.org
+ORG:NASA IV&V Education Resource Center
+TEL;CELL:(304) 710-9137
+TITLE:Robotics Outreach Specialist
+PHOTO;JPEG:http://www.johnholbrook.us/john.jpg
+SOURCE:http://www.johnholbrook.us/john_erc.vcf
+END:VCARD
