@@ -25,9 +25,14 @@
 		</div>
 		<div class="v-spacer"></div>
 		<div class="content footer mb-5">
-			<small>&copy; 2021 John Holbrook</small>
+			<small>&copy; 2015 - <span id="year"></span> John Holbrook</small>
 			<br/>
 			<small>LEGO&reg; is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site. </small>
 		</div>
 	</body>
+
+	<script>
+		const d = new Date();
+		document.querySelector("#year").innerHTML = d.getFullYear();
+	</script>
 </html>
