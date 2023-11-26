@@ -25,6 +25,13 @@
     color: inherit;
 }
 
+.underline-on-hover{
+    text-decoration: none;
+}
+.underline-on-hover:hover, .underline-on-hover:active{
+    text-decoration: underline;
+}
+
 .nav{
     font-size: 2em;
 }
