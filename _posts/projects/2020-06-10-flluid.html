@@ -5,30 +5,15 @@ summary: A flexible, easy-to-use audience dsiplay for FIRST&reg; LEGO&reg League
 imgurl: /img/flluid/overlay.png
 appears-on: projects
 ---
-
 <p>
-    I help run a lot of robotics events, mostly <a href="https://www.firstlegoleague.org">FLL</a>, 
-    <a href="http://www.vexrobotics.com/vexedr/competition/">VRC</a>, and
-    <a href="https://www.vexrobotics.com/vexiq/competition/vex-iq-challenge-overview">VIQC</a>, and as a result I end up thinking a lot about
-    the tenichical and logistical aspects of running these events. One of the things I like about VRC and VIQC is that the scoring and timing software,
-    <a href="https://vextm.dwabtech.com">VEX Tournament Manager</a>, provides a bunch of cool audience-facing displays that effectively convey
-    scoring and scheduling information while looking slick and professional.
+    <b>FLLuid</b> (<b>FLL U</b>seful <b>I</b>nformation <b>D</b>isplay) is an easy-to-use, customizable audience display package 
+    for <a href="https://www.firstlegoleague.org">FIRST LEGO League</a> events run using 
+    <a href="https://flltournament.com">FLLTournament.com</a>.
 </p>
 
 <p>
-    FLL events don't really have an equivalent to VEX Tournament Manager. There are various pieces of software designed to automate some parts of
-    the scoring and display process, but they don't all do everything, and none are the officially-endorsed first-party solution that VEX TM is.
-</p>
-
-<p>
-    For our FLL events in West Virginia, we use <a href="https://flltournament.com">FLLTournament.com</a>. It's great for inputting match scores,
-    automatically ranking teams, digitizing judging rubrics, and recruiting and managing volunteers. But, it's single audience-facing display is...
-    not very pretty, and it doesn't have a built-in match timer, a schedule display, or many of the other audience-facing dsiplays I like in VEX TM.
-</p>
-
-<p>
-    What I really wanted was some software that pulled match score information from FLLTournament.com and displayed it in a more full-featured
-    "audience display" like that provided by VEX TM. This software didn't seem to exist, so I wrote it.
+    FLLTournament provides an excellent for managing match scoring, judging, and volunteer roles. FLLuid extends this functionality by
+    providing a variety of audience-facing displays for use around the tournament venue and in livestreams.
 </p>
 
 <figure class="figure">
@@ -51,10 +36,11 @@ appears-on: projects
 </figure>
 
 <p>
-    <b>FLLuid</b> (<b>FLL U</b>seful <b>I</b>nformation <b>D</b>isplay) is an easy-to-use, customizable audience display package for FLL events run using FLLTournament.com. Features include:
+    Features include:
     <ul>
         <li>Runs on Windows, macOS, and Linux</li>
-        <li>Match timer suitable for use with or without streaming video</li>
+        <li>Suitable for use with or without streaming video</li>
+        <li>Match timer</li>
         <li>Match scores display</li>
         <li>Match schedule display</li>
         <li>Dynamically-updating, smooth-scrolling tables</li>
@@ -66,8 +52,8 @@ appears-on: projects
 </p>
 
 <p>
-    FLLuid presents two windows: the "display window", which is shown full-screen to the audience; and the "controller window", which
-    contains the interface for controlling what's shown in the display window.
+    FLLuid is configured and operated from the "controller window", which allows the user to configure the event, change displays,
+    and control the match timer.
 
     <figure class="figure">
         <img src="/img/flluid/controller.png" class="figure-img img-fluid w-90 mx-auto">
@@ -76,8 +62,10 @@ appears-on: projects
 </p>
 
 <p>
-    I started working on FLLuid in November 2019, and have been working on it on and off since then. As of July 2020, I've implemented most
-    the features I want in an initial release, and I hope to have v1.0 out in time for the 2020-2021 FLL season in WV, whenever that happens.
+    Audience-facing displays are served as web pages, which can be viewed in a browser on the same conputer as the controller,
+    or any other machine on the same local network, making it easy to deploy displays throughout a tournament venue. Serving
+    displays as web pages also makes it easy to incorporate them into <a href="https://obsproject.com">OBS</a> livestreams
+    using the built-in browser source.
 </p>
 
 <p>
